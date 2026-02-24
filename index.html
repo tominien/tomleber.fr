@@ -1,19 +1,294 @@
-<!-- Salut ô grand être humain ! Qu'est-ce que tu fais ici à regarder ce code ? -->
+<!-- Ben dis-donc, ça regarde mon code ??? -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>tominien (Tom Le Ber)</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien"/>
-  <link rel="canonical" href="https://github.com/tominien"/>
-  <script>
-    window.location.replace("https://github.com/tominien");
-  </script>
+  <title>Tom Le Ber | Math & CS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio de Tom Le Ber, étudiant en double licence Mathématiques & Informatique, projets en data science, modélisation et vision par ordinateur."
+  />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection (temporaire) vers mon GitHub (tominien).
-    Si rien ne se passe veuillez cliquer <a href="https://github.com/tominien">ici</a>.
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Étudiant en Mathématiques &amp; Informatique</p>
+          <h1>Je construis des projets à la frontière entre modélisation, data science et vision par ordinateur.</h1>
+          <p class="hero-subtitle">
+            Actuellement en double licence <strong>Mathématiques–Informatique</strong> à l'Université de Toulouse,
+            je travaille sur des projets allant du <strong>jumeau numérique sportif</strong> à la
+            <strong>reconstruction de courbes de charge</strong>, en passant par la
+            <strong>pose des mains au piano</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://github.com/tominien">Voir mon GitHub</a>
+            <a class="btn ghost" href="mailto:tom.leber.toulouse@gmail.com" target="_blank" rel="noreferrer">Me contacter</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Tom Le&nbsp;Ber</p>
+            <p class="hero-role">Licence 3 — Math &amp; Info</p>
+            <ul class="hero-meta">
+              <li>Université de Toulouse</li>
+              <li>Projets académiques &amp; personnels</li>
+              <li>Python · ML · Vision</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>À propos</h2>
+        <div class="two-columns">
+          <p>
+            Je suis étudiant en troisième année de double licence
+            <strong>Mathématiques &amp; Informatique</strong> à l'Université de Toulouse.
+            Je m'intéresse particulièrement aux sujets où se rencontrent
+            <strong>modélisation mathématique</strong>, <strong>data science</strong>
+            et <strong>apprentissage automatique</strong>.
+          </p>
+          <p>
+            À moyen terme, je souhaite intégrer une école d'ingénieur via GEI-UNIV,
+            me spécialiser en <strong>R&amp;D en informatique</strong>
+            (principalement en <strong>intelligence artificielle</strong>),
+            puis poursuivre vers une thèse. Ce site présente une sélection de projets
+            représentatifs, réalisés en <strong>stage</strong>, en <strong>hackathon</strong>
+            et dans le cadre de ma formation universitaire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2>Projets sélectionnés</h2>
+        <p class="section-intro">
+          Une sélection de projets représentatifs : vision par ordinateur, modélisation probabiliste,
+          séries temporelles et simulation.
+        </p>
+
+        <div class="projects-grid">
+          <!-- IRIT -->
+          <article class="project-card">
+            <div class="project-tag">Stage de recherche · IRIT</div>
+            <h3>Jumeau numérique du mouvement sportif</h3>
+            <p>
+              Pipeline expérimental de <strong>jumeau numérique</strong> pour le mouvement sportif :
+              estimation de pose (NLF &amp; MMPose), segmentation avec SAM&nbsp;2 et recomposition de l'athlète
+              dans de nouveaux environnements afin d'étudier la robustesse des modèles de vision.
+            </p>
+            <ul class="project-badges">
+              <li>Pose estimation</li>
+              <li>SAM 2</li>
+              <li>Vision par ordinateur</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://tomleber.fr/irit"
+                 target="_blank" rel="noreferrer">
+                Plus d'informations
+              </a>
+            </div>
+          </article>
+
+          <!-- ENAC / Fresqu'AéroMaps -->
+          <article class="project-card">
+            <div class="project-tag">Projet · ENAC / AéroMAPS</div>
+            <h3>Fresqu'AéroMaps — simulation du transport aérien</h3>
+            <p>
+              Application interactive basée sur <strong>AéroMAPS</strong> permettant d'explorer des scénarios
+              de transition du transport aérien jusqu'en 2050. Le projet est utilisé en atelier de sensibilisation
+              aux enjeux environnementaux liés au trafic aérien.
+            </p>
+            <ul class="project-badges">
+              <li>Simulation</li>
+              <li>Panel / Python</li>
+              <li>Climat &amp; aviation</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://tomleber.fr/enac"
+                 target="_blank" rel="noreferrer">
+                Plus d'informations
+              </a>
+            </div>
+          </article>
+
+          <!-- Enedis -->
+          <article class="project-card">
+            <div class="project-tag">Hackathon · Enedis / ENS</div>
+            <h3>Reconstruction de courbes de charge Linky</h3>
+            <p>
+              Pipeline complet pour reconstruire des segments manquants de courbes de charge
+              <strong>Linky</strong> : feature engineering, régression (ridge / gradient boosting)
+              et ajustement fin du modèle. Résultat :
+              <strong>12ᵉ/119 au classement national</strong> et
+              <strong>1ᵉʳ/39 à l'université</strong>.
+            </p>
+            <ul class="project-badges">
+              <li>Séries temporelles</li>
+              <li>Ridge regression</li>
+              <li>Gradient boosting</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://tomleber.fr/enedis"
+                 target="_blank" rel="noreferrer">
+                Plus d'informations
+              </a>
+            </div>
+          </article>
+
+          <!-- Projet MIDL 1 -->
+          <article class="project-card">
+            <div class="project-tag">Projet MIDL</div>
+            <h3>Metropolis–Hastings &amp; problème du voyageur de commerce</h3>
+            <p>
+              Étude théorique et implémentation de l'algorithme de
+              <strong>Metropolis–Hastings</strong> : chaînes de Markov, convergence,
+              puis application pratique au <strong>problème du voyageur de commerce</strong>
+              pour explorer l'espace des permutations et observer le comportement du sampler.
+            </p>
+            <ul class="project-badges">
+              <li>MCMC</li>
+              <li>Markov chains</li>
+              <li>Optimisation</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://tomleber.fr/projet_midl_1"
+                 target="_blank" rel="noreferrer">
+                Plus d'informations
+              </a>
+            </div>
+          </article>
+
+          <!-- Projet MIDL 2 -->
+          <article class="project-card">
+            <div class="project-tag">Projet MIDL</div>
+            <h3>Pose des mains au piano &amp; prédiction de la prochaine touche</h3>
+            <p>
+              Estimation de la pose d'une main au piano et
+              <strong>prédiction de la prochaine touche pressée</strong> à partir de vidéos.
+              Suivi temporel des doigts via <strong>MMPose</strong>, extrapolation linéaire
+              de leurs trajectoires et évaluation des prédictions (~80&nbsp;% de précision,
+              <strong>1ᵉʳ/25 au classement du cours</strong>).
+            </p>
+            <ul class="project-badges">
+              <li>Vision par ordinateur</li>
+              <li>MMPose</li>
+              <li>Traitement vidéo</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://tomleber.fr/projets_midl_2"
+                 target="_blank" rel="noreferrer">
+                Plus d'informations
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+          <div class="skills-block">
+            <h3>Langages</h3>
+            <ul>
+              <li>Python (numpy, pandas, scikit-learn)</li>
+              <li>C (niveau L3)</li>
+              <li>HTML / CSS (site actuel)</li>
+            </ul>
+          </div>
+          <div class="skills-block">
+            <h3>Data &amp; ML</h3>
+            <ul>
+              <li>Modélisation probabiliste, MCMC</li>
+              <li>Régression (ridge, boosting)</li>
+              <li>Analyse de séries temporelles</li>
+            </ul>
+          </div>
+          <div class="skills-block">
+            <h3>Vision &amp; outils</h3>
+            <ul>
+              <li>MMPose, SAM&nbsp;2 (via notebooks)</li>
+              <li>Jupyter / Google Colab</li>
+              <li>Git &amp; GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          Si vous êtes intéressé par un stage, un projet ou simplement par un échange autour de ces sujets,
+          vous pouvez me contacter par courriel ou consulter mon profil GitHub.
+        </p>
+        <div class="contact-grid">
+          <div>
+            <h3>Mail</h3>
+            <p>
+              <a href="mailto:tom.leber.toulouse@gmail.com">tom.leber.toulouse@gmail.com</a>
+            </p>
+          </div>
+          <div>
+            <h3>GitHub</h3>
+            <p>
+              <a href="https://github.com/tominien" target="_blank" rel="noreferrer">
+                github.com/tominien
+              </a>
+            </p>
+          </div>
+          <!-- Pour quand j'ajouterais mon LinkedIn :
+          <div>
+            <h3>LinkedIn</h3>
+            <p>
+              <a href="https://www.linkedin.com/in/TON-LINKEDIN" target="_blank" rel="noreferrer">
+                Mon profil LinkedIn
+              </a>
+            </p>
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mise à jour automatique de l'année dans le pied de page :
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

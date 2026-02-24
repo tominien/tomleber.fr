@@ -2,16 +2,150 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirection vers le projet IRIT</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien/sports-digital-twin-irit-research-internship" />
-  <link rel="canonical" href="https://github.com/tominien/sports-digital-twin-irit-research-internship" />
+  <title>Jumeau numérique sportif | Tom Le Ber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Stage de recherche à l'IRIT : jumeau numérique de mouvement sportif via NLF, SAM2 et recomposition vidéo."
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection vers le dépôt GitHub :
-    <a href="https://github.com/tominien/sports-digital-twin-irit-research-internship">
-      sports-digital-twin-irit-research-internship
-    </a>
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="/">Accueil</a>
+        <a href="/#projects">Projets</a>
+        <a href="/#skills">Compétences</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Stage de recherche — IRIT (L3 Math &amp; Informatique)</p>
+          <h1>Jumeau numérique de mouvement sportif (NLF &amp; SAM2)</h1>
+          <p class="hero-subtitle">
+            À partir de vidéos réelles de danse ou de sport, ce projet construit un
+            <strong>jumeau numérique</strong> du mouvement en combinant estimation de pose (NLF &amp; MMPose),
+            segmentation avec SAM&nbsp;2 et recomposition du sujet sur de nouveaux arrière-plans.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary"
+               href="https://github.com/tominien/sports-digital-twin-irit-research-internship"
+               target="_blank" rel="noreferrer">
+              Voir le projet sur GitHub
+            </a>
+            <a class="btn ghost" href="/#projects">
+              ← Retour aux projets
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Sports Motion Digital Twin</p>
+            <p class="hero-role">TER — L3 Math &amp; Info</p>
+            <ul class="hero-meta">
+              <li>Pose estimation (NLF &amp; MMPose)</li>
+              <li>Segmentation SAM&nbsp;2</li>
+              <li>Recomposition vidéo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSUMÉ -->
+    <section class="section">
+      <div class="container">
+        <h2>Résumé du projet</h2>
+        <div class="two-columns">
+          <p>
+            Ce travail s'inscrit dans un stage de recherche de troisième année à l'IRIT. L'objectif est
+            d'étudier une chaîne complète permettant de <strong>transférer un mouvement réel</strong> (danse, sport)
+            vers de nouveaux environnements visuels, tout en restant fidèle à la cinématique d'origine.
+          </p>
+          <p>
+            Le cœur du projet est un <strong>notebook Google Colab</strong> orienté expérimentation :
+            comparaison de méthodes d'estimation de pose, analyse des échecs (occlusions, poses extrêmes),
+            qualité de la segmentation et de la recomposition, et pistes de couplage avec des
+            modèles de diffusion pour générer des décors plus complexes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Pipeline expérimental</h2>
+        <ol class="project-steps">
+          <li>
+            <strong>Estimation de pose avec NLF et MMPose</strong> : extraction de la pose 2D du danseur
+            ou du sportif, puis comparaison de la robustesse des modèles face aux mouvements rapides,
+            aux occlusions et aux poses atypiques.
+          </li>
+          <li>
+            <strong>Segmentation avec SAM&nbsp;2</strong> : segmentation image par image de la personne,
+            suivi du masque dans le temps et raffinement pour obtenir un détourage propre du sujet.
+          </li>
+          <li>
+            <strong>Reprojection sur de nouveaux fonds</strong> : alignement du sujet avec des repères
+            géométriques simples (par exemple une barre verticale) et recomposition du mouvement sur
+            d'autres vidéos ou images d'arrière-plan.
+          </li>
+          <li>
+            <strong>Ouverture vers les modèles de diffusion</strong> : réflexion sur la façon dont la
+            chaîne “pose + segmentation + compositing” pourrait être combinée à des modèles de type
+            Stable Diffusion pour enrichir les scènes.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EXEMPLES & RESSOURCES -->
+    <section class="section">
+      <div class="container">
+        <h2>Exemples et ressources</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Exemples d'utilisation</h3>
+            <ul>
+              <li>Tester la robustesse de différents modèles de pose sur des vidéos de pole dance.</li>
+              <li>Analyser la qualité de la segmentation sur des mouvements rapides ou partiellement cachés.</li>
+              <li>Créer des démonstrateurs visuels de jumeaux numériques pour des scénarios sportifs.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Pour aller plus loin</h3>
+            <ul>
+              <li>Notebook principal : exécution complète du pipeline sous Google Colab (CPU).</li>
+              <li>Dossier <code>data/</code> contenant un exemple de séquence vidéo découpée en images.</li>
+              <li>Résultats illustratifs dans le dossier <code>results/</code>.</li>
+            </ul>
+            <p>
+              Toutes les instructions d'exécution détaillées se trouvent dans le README du dépôt GitHub.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

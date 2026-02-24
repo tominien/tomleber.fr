@@ -2,16 +2,148 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirection vers projet MIDL 2</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien/piano-hand-pose-estimation-mmpose" />
-  <link rel="canonical" href="https://github.com/tominien/piano-hand-pose-estimation-mmpose" />
+  <title>Pose des mains au piano | Tom Le Ber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Projet MIDL : estimation de la pose de la main au piano et prédiction des touches jouées à partir de vidéos, avec MMPose."
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection vers le dépôt GitHub :
-    <a href="https://github.com/tominien/piano-hand-pose-estimation-mmpose">
-      piano-hand-pose-estimation-mmpose
-    </a>
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="/">Accueil</a>
+        <a href="/#projects">Projets</a>
+        <a href="/#skills">Compétences</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Projet MIDL — Vision par ordinateur</p>
+          <h1>Pose des mains au piano &amp; prédiction des notes (MMPose)</h1>
+          <p class="hero-subtitle">
+            À partir d'une vidéo de piano vue du dessus, ce projet estime la
+            <strong>pose 2D de la main</strong>, détecte les pressions de touches et reconstruit la
+            séquence de notes jouées, en s'appuyant sur MMPose.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary"
+               href="https://github.com/tominien/piano-hand-pose-estimation-mmpose"
+               target="_blank" rel="noreferrer">
+              Voir le projet sur GitHub
+            </a>
+            <a class="btn ghost" href="/#projects">
+              ← Retour aux projets
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Piano Hand Pose &amp; Keys</p>
+            <p class="hero-role">Projet MIDL</p>
+            <ul class="hero-meta">
+              <li>MMPose (mains)</li>
+              <li>Analyse temporelle</li>
+              <li>Notes MIDI-like</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSUMÉ -->
+    <section class="section">
+      <div class="container">
+        <h2>Résumé du projet</h2>
+        <div class="two-columns">
+          <p>
+            Le projet traite de la détection de la pose d'une main au piano à partir de vidéos
+            filmées du dessus, puis de la <strong>détection automatique des touches pressées</strong>.
+            Il s'inscrit dans le cadre d'un projet académique du double diplôme Math–Info.
+          </p>
+          <p>
+            L'idée centrale est de combiner la puissance de MMPose pour l'estimation de pose
+            2D avec une modélisation géométrique du clavier de piano et une analyse temporelle
+            fine des trajectoires des doigts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Pipeline de traitement</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Étapes principales</h3>
+            <ol class="project-steps">
+              <li>Détection des points clés de la main (poignet + doigts) via MMPose.</li>
+              <li>Calibrage de la géométrie du piano dans l'image (position des touches blanches/noires).</li>
+              <li>Suivi temporel des extrémités de doigts et détection des événements de pression.</li>
+              <li>Association de chaque pression à une note (par exemple <code>C4</code>, <code>G4</code>, <code>F#5</code>).</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Sorties du système</h3>
+            <ul>
+              <li>Liste structurée des notes détectées (format Python / CSV).</li>
+              <li>Possibilité de reconstruire la séquence de jeu ou de la réutiliser dans d'autres outils.</li>
+              <li>
+                Visualisations intermédiaires (superposition des keypoints, diagnostics sur les
+                trajectoires de doigts).
+              </li>
+            </ul>
+            <p>
+              Le projet est conçu pour être exécuté principalement sur Google Colab, avec une
+              configuration CPU reproductible pour MMPose.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section class="section">
+      <div class="container">
+        <h2>Ressources</h2>
+        <div class="two-columns">
+          <div>
+            <ul>
+              <li>Notebook principal du projet (pipeline complet).</li>
+              <li>Instructions d'exécution détaillées pour Google Colab.</li>
+              <li>Exemples de vidéos et paramètres de configuration.</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              Le dépôt GitHub contient la marche à suivre pour adapter le pipeline à vos propres
+              vidéos (calibrage du piano, choix des doigts à suivre, sélection de modèles MMPose).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

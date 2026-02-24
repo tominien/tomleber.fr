@@ -2,16 +2,156 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirection vers le projet ENAC</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien/fresqu-aeromaps" />
-  <link rel="canonical" href="https://github.com/tominien/fresqu-aeromaps" />
+  <title>Fresqu'AéroMaps | Tom Le Ber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Application Fresqu'AéroMaps : simulations interactives de scénarios de transport aérien jusqu'en 2050, basée sur AeroMAPS."
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection vers le dépôt GitHub :
-    <a href="https://github.com/tominien/fresqu-aeromaps">
-      fresqu-aeromaps
-    </a>
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="/">Accueil</a>
+        <a href="/#projects">Projets</a>
+        <a href="/#skills">Compétences</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Projet de stage — ENAC / Fresqu'Aéro</p>
+          <h1>Fresqu'AéroMaps — scénarios de transport aérien jusqu'en 2050</h1>
+          <p class="hero-subtitle">
+            Fresqu'AéroMaps est une application interactive basée sur le framework AeroMAPS,
+            utilisée pour conclure l'atelier de sensibilisation <strong>Fresqu'Aéro</strong> en
+            explorant des scénarios d'évolution du transport aérien jusqu'en 2050.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary"
+               href="https://github.com/tominien/fresqu-aeromaps"
+               target="_blank" rel="noreferrer">
+              Voir le projet sur GitHub
+            </a>
+            <a class="btn ghost" href="/#projects">
+              ← Retour aux projets
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Fresqu'AéroMaps</p>
+            <p class="hero-role">Simulation · Climat &amp; aviation</p>
+            <ul class="hero-meta">
+              <li>Basé sur AeroMAPS</li>
+              <li>Scénarios jusqu'en 2050</li>
+              <li>Interface interactive</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSUMÉ -->
+    <section class="section">
+      <div class="container">
+        <h2>Contexte et objectif</h2>
+        <div class="two-columns">
+          <p>
+            L'application intervient dans le cadre de l'atelier <strong>Fresqu'Aéro</strong>, inspiré de la
+            Fresque du Climat. Les participants construisent des “cartes solutions” puis utilisent
+            Fresqu'AéroMaps pour visualiser l'impact de leurs choix sur l'évolution du trafic aérien
+            et de ses émissions à l'horizon 2050.
+          </p>
+          <p>
+            Le projet s'appuie sur le framework <strong>AeroMAPS</strong> pour simuler des scénarios
+            prospectifs : évolution de la demande, renouvellement des flottes, carburants alternatifs,
+            et combinaisons de leviers d'action. L'application fournit une interface claire pour
+            manipuler ces scénarios en temps réel lors de l'atelier.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROCHE TECHNIQUE -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Approche technique</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Architecture</h3>
+            <ul>
+              <li>Application Python organisée autour d'un répertoire <code>src/</code>.</li>
+              <li>Interface “web” basée sur un serveur Panel, déployable en local ou via Docker.</li>
+              <li>Version notebook (Jupyter) pour l'exploration plus détaillée des scénarios.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Déploiement</h3>
+            <ul>
+              <li>Exécution locale via environnement virtuel Python (<code>.venv</code>).</li>
+              <li>Image Docker pour un lancement simplifié et reproductible.</li>
+              <li>Version en ligne déployée sur des services type Render / Binder.</li>
+            </ul>
+            <p>
+              Le README du dépôt détaille les étapes d'installation, la configuration de l'environnement
+              et les commandes pour lancer l'application.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXEMPLES & RESSOURCES -->
+    <section class="section">
+      <div class="container">
+        <h2>Exemples d'utilisation</h2>
+        <div class="two-columns">
+          <div>
+            <ul>
+              <li>
+                Comparer un scénario “tendanciel” à un scénario “sobriété + innovations technologiques”.
+              </li>
+              <li>
+                Visualiser l'effet d'un déploiement progressif de carburants alternatifs sur les
+                émissions de CO₂ du secteur.
+              </li>
+              <li>
+                Animer un atelier pédagogique en laissant les participants ajuster les leviers et
+                interpréter les résultats.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Ressources</h3>
+            <ul>
+              <li>Guide d'installation (environnement Python, dépendances, <code>.env</code>).</li>
+              <li>Instructions de lancement en local et en ligne.</li>
+              <li>Liens vers les déploiements publics de l'application.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

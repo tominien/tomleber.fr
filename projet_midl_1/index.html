@@ -2,16 +2,151 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirection vers projet MIDL 1</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien/hasting-metropolis" />
-  <link rel="canonical" href="https://github.com/tominien/hasting-metropolis" />
+  <title>Metropolis–Hastings & TSP | Tom Le Ber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Projet MIDL : étude théorique de l'algorithme de Metropolis–Hastings et application au problème du voyageur de commerce."
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection vers le dépôt GitHub :
-    <a href="https://github.com/tominien/hasting-metropolis">
-      hasting-metropolis
-    </a>
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="/">Accueil</a>
+        <a href="/#projects">Projets</a>
+        <a href="/#skills">Compétences</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Projet MIDL — Licence de Mathématiques</p>
+          <h1>Algorithme de Metropolis–Hastings &amp; problème du voyageur de commerce</h1>
+          <p class="hero-subtitle">
+            Projet mêlant une <strong>étude théorique</strong> des chaînes de Markov et de l'algorithme
+            de Metropolis–Hastings, et une <strong>implémentation en Python</strong> appliquée au
+            problème du voyageur de commerce (TSP).
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary"
+               href="https://github.com/tominien/hasting-metropolis"
+               target="_blank" rel="noreferrer">
+              Voir le projet sur GitHub
+            </a>
+            <a class="btn ghost" href="/#projects">
+              ← Retour aux projets
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Metropolis–Hastings &amp; TSP</p>
+            <p class="hero-role">Projet MIDL</p>
+            <ul class="hero-meta">
+              <li>Chaînes de Markov</li>
+              <li>MCMC</li>
+              <li>Voyageur de commerce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSUMÉ -->
+    <section class="section">
+      <div class="container">
+        <h2>Objectifs du projet</h2>
+        <div class="two-columns">
+          <p>
+            Ce projet a été réalisé dans le cadre du cours “Projet de la licence de Mathématiques”
+            du parcours MIDL. Il comporte deux volets complémentaires : un rapport théorique,
+            et un ensemble de scripts Python illustrant l'algorithme.
+          </p>
+          <p>
+            La partie théorique introduit les notions de base des <strong>chaînes de Markov</strong>
+            (matrices de transition, classes de communication, récurrence, ergodicité, mesures
+            invariantes) avant de construire et d'analyser l'algorithme de Metropolis–Hastings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENU -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Contenu et contributions</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Étude théorique</h3>
+            <ul>
+              <li>Rappel des propriétés des chaînes de Markov sur un espace d'états fini.</li>
+              <li>
+                Construction de l'algorithme de Metropolis–Hastings avec une distribution
+                cible donnée et une loi de proposition.
+              </li>
+              <li>
+                Preuve de la réversibilité et de la convergence vers la distribution invariante
+                sous certaines conditions.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Implémentation Python</h3>
+            <ul>
+              <li>Échantillonnage depuis différentes distributions cibles (gaussiennes, mélanges, lois discrètes).</li>
+              <li>
+                Application au <strong>problème du voyageur de commerce</strong> : exploration de l'espace
+                des permutations via Metropolis–Hastings.
+              </li>
+              <li>
+                Visualisation de l'évolution de la longueur de la tournée et du comportement de la chaîne.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section class="section">
+      <div class="container">
+        <h2>Ressources</h2>
+        <div class="two-columns">
+          <div>
+            <ul>
+              <li>Rapport PDF détaillant l'ensemble de la partie théorique.</li>
+              <li>Scripts Python pour l'algorithme générique et pour le cas du TSP.</li>
+              <li>Exemples d'expériences numériques documentées dans le dépôt.</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              Le dépôt GitHub présente la structure du projet, les instructions d'exécution et les
+              différents cas de test utilisés pour illustrer le comportement de l'algorithme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

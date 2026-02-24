@@ -2,16 +2,147 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirection vers le projet Enedis</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/tominien/enedis-hackathon-electricity-load-curve-reconstruction" />
-  <link rel="canonical" href="https://github.com/tominien/enedis-hackathon-electricity-load-curve-reconstruction" />
+  <title>Reconstruction de courbes Linky | Tom Le Ber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Hackathon Enedis : reconstruction de segments manquants de courbes de charge Linky via régression (ridge + gradient boosting)."
+  />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <p>
-    Redirection vers le dépôt GitHub :
-    <a href="https://github.com/tominien/enedis-hackathon-electricity-load-curve-reconstruction">
-      enedis-hackathon-electricity-load-curve-reconstruction
-    </a>
-  </p>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">Tom Le&nbsp;Ber</div>
+      <nav class="main-nav">
+        <a href="/">Accueil</a>
+        <a href="/#projects">Projets</a>
+        <a href="/#skills">Compétences</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Hackathon — Enedis / ENS ChallengeData</p>
+          <h1>Reconstruction de courbes de charge Linky</h1>
+          <p class="hero-subtitle">
+            Construction d'un pipeline de bout en bout pour
+            <strong>imputer des segments manquants</strong> de courbes de charge quotidiennes à partir de
+            données Linky, en combinant feature engineering, régression ridge et gradient boosting.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary"
+               href="https://github.com/tominien/enedis-hackathon-electricity-load-curve-reconstruction"
+               target="_blank" rel="noreferrer">
+              Voir le projet sur GitHub
+            </a>
+            <a class="btn ghost" href="/#projects">
+              ← Retour aux projets
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="hero-name">Enedis Linky Load Curve</p>
+            <p class="hero-role">Hackathon IA</p>
+            <ul class="hero-meta">
+              <li>Séries temporelles</li>
+              <li>Ridge + Gradient Boosting</li>
+              <li>MAE sur points manquants</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉSUMÉ -->
+    <section class="section">
+      <div class="container">
+        <h2>Contexte du challenge</h2>
+        <div class="two-columns">
+          <p>
+            Le challenge, proposé par Enedis sur la plateforme ChallengeData, consiste à
+            <strong>reconstituer des courbes de charge quotidiennes</strong> à partir de données partiellement
+            observées. Pour un ensemble d'utilisateurs, certaines journées sont complètes, d'autres
+            présentent des “trous” à combler.
+          </p>
+          <p>
+            L'objectif est de prédire au mieux ces valeurs manquantes sur un jeu de test, en minimisant
+            une erreur de type <strong>Mean Absolute Error (MAE)</strong> sur les points masqués. Le projet
+            met l'accent sur la qualité des features temporelles et sur la robustesse du modèle aux
+            profils de consommation variés.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Pipeline de modélisation</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Préparation des données</h3>
+            <ul>
+              <li>Manipulation de fichiers volumineux (<code>x_train</code>, <code>y_train</code>, <code>x_test</code>).</li>
+              <li>Construction de jeux de données exploitables (séparation jours complets / jours troués).</li>
+              <li>Création de variables dérivées pour capturer des motifs de charge (profils horaires, moyennes, etc.).</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Modèles &amp; évaluation</h3>
+            <ul>
+              <li>Modèle de base en régression ridge pour capturer une structure linéaire globale.</li>
+              <li>Affinage avec des modèles de type gradient boosting.</li>
+              <li>Évaluation via MAE sur les points manquants, en suivant la métrique du challenge.</li>
+            </ul>
+            <p>
+              Le code est organisé autour d'un notebook principal et de fichiers Python
+              (<code>solution.py</code>, <code>utils.py</code>) pour une exécution plus automatisable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section class="section">
+      <div class="container">
+        <h2>Ressources</h2>
+        <div class="two-columns">
+          <div>
+            <ul>
+              <li>Site du challenge (description détaillée du jeu de données et de la tâche).</li>
+              <li>Explications sur le format des fichiers (<code>x_train</code>, <code>y_train</code>, <code>x_test</code>).</li>
+              <li>Code commenté pour la préparation, l'entraînement et la prédiction.</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              Les données brutes dépassant la limite de taille de GitHub, elles doivent être téléchargées
+              depuis la plateforme ChallengeData, puis placées dans le dossier
+              <code>data/datasets/</code> avant exécution du code.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
