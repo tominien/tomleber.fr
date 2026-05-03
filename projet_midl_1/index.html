@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Metropolis–Hastings & TSP – Tom Le Ber</title>
+  <title>Tom Le Ber — Metropolis—Hastings &amp; TSP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Projet MIDL 1 : étude théorique de l'algorithme de Metropolis–Hastings et application au problème du voyageur de commerce." />
+  <meta name="description" content="Projet MIDL 1 : étude mathématique des chaînes de Markov et de l'algorithme de Metropolis—Hastings, avec implémentation Python appliquée au problème du voyageur de commerce." />
   <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="canonical" href="https://tomleber.fr/projet_midl_1" />
@@ -31,20 +31,25 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <p class="hero-kicker">Projet académique · L2 MIDL</p>
-          <h1>Metropolis–Hastings &amp; problème du voyageur de commerce</h1>
+          <h1>Metropolis—Hastings &amp; problème du voyageur de commerce</h1>
           <p class="hero-subtitle">
-            Projet mêlant une <strong>étude théorique</strong> des chaînes de Markov et de l'algorithme
-            de Metropolis–Hastings, et une <strong>implémentation en Python</strong> appliquée au
-            problème du voyageur de commerce (TSP).
+            Co-rédaction d'un <strong>rapport mathématique</strong> de 44 pages en <strong>LaTeX</strong>, composé d'une <strong>étude théorique des chaînes de Markov</strong> et d'une <strong>implémentation de l'algorithme de Metropolis—Hastings</strong>.
+          </p>
+          <p class="hero-subtitle">
+            Démonstration de multiples preuves (théorème ergodique, de convergence, etc.) et implémentation Python appliquée au <strong>problème du voyageur de commerce</strong> (TSP).
+          </p>
+          <p class="hero-subtitle">
+            Réalisé avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>, <a class="link" href="https://github.com/CorentinVaillant" target="_blank" rel="noreferrer">Corentin Vaillant</a> et <a class="link" href="https://yolwoocle.com/" target="_blank" rel="noreferrer">Léo Bernard</a>.
           </p>
           <div class="hero-actions">
-            <a class="btn primary"
-               href="https://github.com/tominien/hasting-metropolis"
-               target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://github.com/tominien/hasting-metropolis" target="_blank" rel="noreferrer">
               Voir le projet sur GitHub
             </a>
-            <a class="btn primary" href="./docs/rapport_projet_midl_1.pdf" download>
-              Télécharger le rapport de mathématiques (PDF)
+            <a class="btn primary" href="./docs/rapport_projet_midl_1.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport de mathématiques (PDF)
+            </a>
+            <a class="btn primary" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">
+              Voir le Google Colab du projet
             </a>
             <a class="btn ghost" href="/#projects">
               ← Retour aux projets
@@ -53,91 +58,131 @@
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-name">Metropolis–Hastings &amp; TSP</p>
-            <p class="hero-role">Projet MIDL</p>
+            <p class="hero-name">Metropolis—Hastings &amp; TSP</p>
+            <p class="hero-role">Rapport mathématique et implémentation Python d'une méthode MCMC.</p>
             <ul class="hero-meta">
               <li>Chaînes de Markov</li>
-              <li>MCMC</li>
-              <li>Voyageur de commerce</li>
+              <li>Méthodes MCMC</li>
+              <li>Voyageur de commerce (TSP)</li>
+              <li>Python &amp; LaTeX</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RÉSUMÉ -->
+    <!-- PRESENTATION GENERALE -->
     <section class="section">
       <div class="container">
-        <h2>Objectifs du projet</h2>
-        <div class="two-columns">
+        <h2>Présentation générale</h2>
+        <div class="action-block">
+          <p class="action-block-text">
+            Les ressources suivantes permettent de consulter le rapport complet et d'exécuter interactivement les implémentations Python du projet.
+          </p>
+          <div class="action-row">
+            <a class="btn primary" href="./docs/rapport_projet_midl_1.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport complet (PDF)
+            </a>
+            <a class="btn primary" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">
+              Google Colab du projet
+            </a>
+            <a class="btn ghost" href="https://github.com/tominien/hasting-metropolis" target="_blank" rel="noreferrer">
+              Dépôt GitHub
+            </a>
+          </div>
+        </div>
+        <h3>Contexte du projet</h3>
+        <div>
           <p>
-            Ce projet a été réalisé dans le cadre du cours “Projet de la licence de Mathématiques”
-            du parcours MIDL. Il comporte deux volets complémentaires : un rapport théorique,
-            et un ensemble de scripts Python illustrant l'algorithme.
+            Ce projet a été réalisé dans le cadre de l'UE <strong>Projet de la licence de mathématiques</strong> de ma double licence.
+            <br>
+            L'objectif était de comprendre en profondeur une méthode probabiliste importante, l'algorithme de <strong>Hastings—Metropolis</strong> (une méthode <strong>MCMC</strong>), puis de l'illustrer sur un problème classique d'optimisation : le <strong>problème du voyageur de commerce (TSP)</strong>.
           </p>
           <p>
-            La partie théorique introduit les notions de base des <strong>chaînes de Markov</strong>
-            (matrices de transition, classes de communication, récurrence, ergodicité, mesures
-            invariantes) avant de construire et d'analyser l'algorithme de Metropolis–Hastings.
+            Le travail comporte donc deux parties complémentaires :
+          </p>
+          <ol class="container-list">
+            <li>Une première partie <strong>théorique (mathématiques)</strong>, consacrée aux <strong>chaînes de Markov</strong> et à la <strong>justification de l'algorithme de Hastings—Metropolis</strong>,</li>
+            <li>Une deuxième partie <strong>pratique (informatique)</strong>, consacrée à son <strong>implémentation en Python</strong> et à sa mise en pratique sur plusieurs exemples, notamment le <strong>TSP sur les 10 plus grandes villes de France</strong>.</li>
+          </ol>
+        </div>
+        <h3>Présentation générale de Hastings—Metropolis</h3>
+        <div>
+          <p>
+            L'algorithme de Hastings—Metropolis est une <strong>méthode d'échantillonnage stochastique</strong> : au lieu d'explorer exhaustivement un espace de solutions, on construit progressivement une chaîne de Markov dont le comportement <strong>converge vers une distribution cible</strong> choisie.
+          </p>
+          <p>
+            Dans notre projet, on a appliqué Hastings—Metropolis au <strong>TSP</strong> sur les <strong>10 plus grandes villes de France</strong>, en les reliant par leurs distances à vol d'oiseau.
+            <br>
+            Ici, une solution possible est une permutation de ces 10 villes.
+            <br>
+            L'idée est alors de parcourir "intelligemment" l'espace des permutations en acceptant ou refusant des modifications aléatoires selon une <strong>règle probabiliste favorisant les tournées courtes</strong>, sans imposer une recherche exhaustive impossible dès que le nombre de villes augmente.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- CONTENU -->
+    <!-- DEMARCHE MATHEMATIQUE -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Contenu et contributions</h2>
-        <div class="two-columns">
-          <div>
-            <h3>Étude théorique</h3>
-            <ul>
-              <li>Rappel des propriétés des chaînes de Markov sur un espace d'états fini.</li>
-              <li>
-                Construction de l'algorithme de Metropolis–Hastings avec une distribution
-                cible donnée et une loi de proposition.
-              </li>
-              <li>
-                Preuve de la réversibilité et de la convergence vers la distribution invariante
-                sous certaines conditions.
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3>Implémentation Python</h3>
-            <ul>
-              <li>Échantillonnage depuis différentes distributions cibles (gaussiennes, mélanges, lois discrètes).</li>
-              <li>
-                Application au <strong>problème du voyageur de commerce</strong> : exploration de l'espace
-                des permutations via Metropolis–Hastings.
-              </li>
-              <li>
-                Visualisation de l'évolution de la longueur de la tournée et du comportement de la chaîne.
-              </li>
-            </ul>
-          </div>
+        <h2>1. Démarche mathématique</h2>
+        <div>
+          <p>
+            La première partie du rapport introduit les outils nécessaires à la compréhension de l'algorithme.
+            Elle commence par les <strong>chaînes de Markov à espace d'états fini</strong>, en détaillant notamment les matrices de transition, la représentation sous forme de graphe orienté, les classes de communication, les états récurrents ou transients, les probabilités invariantes et le comportement en temps long.
+          </p>
+          <p>
+            Ces notions permettent ensuite d'expliquer les raisons pour lesquelles une chaîne de Markov "bien construite" peut produire des échantillons représentatifs d'une distribution cible.
+            <br>
+            Cette idée est centrale dans les méthodes <strong>MCMC (<em>Markov Chain Monte Carlo</em>)</strong>, dont Hastings—Metropolis fait partie.
+          </p>
+          <p>
+            La suite du rapport présente alors l'algorithme lui-même : choix d'un état initial, choix d'une loi de proposition, calcul d'un ratio d'acceptation, puis acceptation ou rejet du nouvel état proposé.
+            Notre rapport détaille aussi les arguments mathématiques justifiant que la chaîne obtenue admet bien la distribution cible voulue, sous les hypothèses appropriées.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- RESSOURCES -->
+    <!-- IMPLEMENTATION -->
     <section class="section">
       <div class="container">
-        <h2>Ressources</h2>
-        <div class="two-columns">
-          <div>
-            <ul>
-              <li>Rapport PDF détaillant l'ensemble de la partie théorique.</li>
-              <li>Scripts Python pour l'algorithme générique et pour le cas du TSP.</li>
-              <li>Exemples d'expériences numériques documentées dans le dépôt.</li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              Le dépôt GitHub présente la structure du projet, les instructions d'exécution et les
-              différents cas de test utilisés pour illustrer le comportement de l'algorithme.
-            </p>
-          </div>
+        <h2>2. Implémentation en Python</h2>
+        <h3>Algorithme générique d'Hastings—Metropolis</h3>
+        <div>
+          <p>
+            La deuxième partie de notre rapport (informatique) commence par une <strong>implémentation générique de Hastings—Metropolis</strong>.
+            <br>
+            Le <strong><a class="link" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> que l'on a réalisé nous permet de définir une distribution cible discrète et une matrice de proposition, puis de simuler une suite d'états dont l'histogramme se rapproche progressivement de la distribution visée.
+          </p>
+          <p>
+            <strong>Plusieurs exemples de distributions sont testés</strong> afin de vérifier expérimentalement le comportement de l'algorithme : <strong>loi binomiale</strong>, <strong>loi de Poisson</strong>, <strong>loi uniforme</strong>, <strong>loi géométrique</strong> et <strong>distribution discrète quelconque</strong>.
+          </p>
+        </div>
+
+        <h3>Application au voyageur de commerce</h3>
+        <div>
+          <p>
+            Dans notre rapport, on a également choisi d'appliquer Hastings—Metropolis au <strong>problème du voyageur de commerce</strong>, sur une tournée de 20 villes placées aléatoirement, puis sur les 10 plus grandes villes de France (représentées par leurs coordonnées).
+            Une tournée est représentée par une permutation des villes.
+            <br>
+            À chaque itération, l'algorithme propose une nouvelle tournée en échangeant aléatoirement deux villes, puis accepte ou refuse cette nouvelle tournée en fonction de sa longueur totale.
+          </p>
+          <p>
+            <strong>La distribution cible utilisée favorise les tournées courtes</strong> : plus une tournée est longue, moins elle est probable.
+            <br>
+            Le paramètre <code>beta</code> nous permet de contrôler la sélectivité de cette préférence.
+            <br>
+            Notre <strong><a class="link" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> compare alors le comportement de l'algorithme selon le nombre d'itérations et selon différentes valeurs de <code>beta</code>.
+          </p>
+          <p>
+            Pour finir, différentes visualisations permettent d'observer l'amélioration progressive des tournées obtenues :
+          </p>
+          <ol class="container-list">
+            <li>Exemples aléatoires sur un ensemble de 20 villes générées,</li>
+            <li>Cas concret avec les 10 plus grandes villes de France,</li>
+            <li>Puis expérience de plus grande taille pour analyser l'évolution de la meilleure distance rencontrée au fil des itérations.</li>
+          </ol>
         </div>
       </div>
     </section>
@@ -145,7 +190,7 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>&copy; <span id="year"></span> Tom Le Ber</span>
       <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
     </div>
   </footer>

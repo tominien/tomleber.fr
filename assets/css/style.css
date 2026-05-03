@@ -50,13 +50,28 @@ body.home .hero-text h1 {
 
 .container-list {
   margin: 0.6rem 0 0.8rem;
-  padding-left: 1.2rem;
+  padding-left: 1.4rem;
   color: var(--muted);
 }
 
 .container-list li {
-  margin: 0.35rem 1.5em;
+  margin: 0.35rem 0;
   color: inherit;
+  line-height: 1.55;
+}
+
+.project-text-group > p {
+  margin-bottom: 0.25rem;
+}
+
+.project-compact-list {
+  margin-top: 0.15rem;
+  margin-bottom: 0;
+}
+
+.project-compact-list li {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .section {
@@ -221,13 +236,25 @@ p {
   margin-top: 1.3rem;
 }
 
-.download-actions {
-  margin-bottom: 1.6rem;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+
+/* ACTION BLOCKS */
+
+.action-block {
+  margin: 0.8rem 0 1.6rem;
 }
 
-.download-actions + h3 {
+.action-block-text {
+  margin-bottom: 0.9rem;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.action-block + h3 {
   margin-top: 1.6rem;
 }
 

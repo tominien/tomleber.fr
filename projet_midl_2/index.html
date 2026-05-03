@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Détection et prédiction de touches au piano – Tom Le Ber</title>
+  <title>Tom Le Ber — Pose des mains au piano &amp; prédiction de touches</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Projet MIDL 2 : estimation de la pose de la main au piano et prédiction des touches jouées à partir de vidéos, avec MMPose." />
+  <meta name="description" content="Projet MIDL 2 : estimation de pose de la main au piano avec MMPose, suivi temporel des doigts, détection des touches pressées et prédiction de la prochaine note jouée." />
   <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="canonical" href="https://tomleber.fr/projet_midl_2" />
@@ -31,20 +31,34 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <p class="hero-kicker">Projet académique · L3 MIDL</p>
-          <h1>Pose des mains au piano &amp; prédiction de la prochaine touche pressée</h1>
+          <h1>Étude de la pose des mains sur un piano &amp; prédiction de la prochaine touche pressée</h1>
           <p class="hero-subtitle">
-            À partir d'une vidéo de piano vue du dessus, ce projet estime la
-            <strong>pose 2D de la main</strong>, détecte les pressions de touches et reconstruit la
-            séquence de notes jouées, en s'appuyant sur MMPose.
+            Estimation de la pose d'une main au piano et <strong>prédiction itérative de la prochaine touche pressée</strong> sur une vidéo donnée.
+          </p>
+          <p class="hero-subtitle">
+            Création d'un <strong>pipeline de suivi temporel</strong> d'une main combinant : <strong>estimation de la position de la main</strong> sur un piano, <strong>extrapolation linéaire</strong> des trajectoires de ses doigts et <strong>évaluation des prédictions</strong>.
+          </p>
+          <div class="project-text-group">
+            <p class="hero-subtitle">
+              Performance &amp; classement :
+            </p>
+            <ul class="container-list project-compact-list">
+              <li><strong>~80%</strong> des touches pressées correctement prédites</li>
+              <li><strong>1ᵉʳ/25</strong> groupes à l'université</li>
+            </ul>
+          </div>
+          <p class="hero-subtitle">
+            Réalisé en binôme avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>.
           </p>
           <div class="hero-actions">
-            <a class="btn primary"
-               href="https://github.com/tominien/piano-hand-pose-estimation-mmpose"
-               target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://github.com/tominien/piano-hand-pose-estimation-mmpose" target="_blank" rel="noreferrer">
               Voir le projet sur GitHub
             </a>
-            <a class="btn primary" href="./docs/rapport_projet_midl_2.pdf" download>
-              Télécharger le rapport du projet (PDF)
+            <a class="btn primary" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport du projet (PDF)
+            </a>
+            <a class="btn primary" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">
+              Voir le Google Colab du projet
             </a>
             <a class="btn ghost" href="/#projects">
               ← Retour aux projets
@@ -53,88 +67,191 @@
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-name">Piano Hand Pose &amp; Keys</p>
-            <p class="hero-role">Projet MIDL</p>
+            <p class="hero-name">Piano Hand Pose Estimation</p>
+            <p class="hero-role">Analyse de vidéos de piano vues du dessus avec MMPose.</p>
             <ul class="hero-meta">
-              <li>MMPose (mains)</li>
-              <li>Analyse temporelle</li>
-              <li>Notes MIDI-like</li>
+              <li>MMPose</li>
+              <li>Suivi temporel des doigts d'une main</li>
+              <li>Filtre de Savitzky—Golay</li>
+              <li>Prédiction itérative des notes</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RÉSUMÉ -->
+    <!-- PRESENTATION GENERALE -->
     <section class="section">
       <div class="container">
-        <h2>Résumé du projet</h2>
-        <div class="two-columns">
+        <h2>Présentation générale</h2>
+        <div class="action-block">
+          <p class="action-block-text">
+            Les ressources suivantes permettent de consulter le rapport complet et d'exécuter le notebook Google Colab contenant le pipeline du projet.
+          </p>
+          <div class="action-row">
+            <a class="btn primary" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport complet (PDF)
+            </a>
+            <a class="btn primary" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">
+              Google Colab du projet
+            </a>
+            <a class="btn ghost" href="https://github.com/tominien/piano-hand-pose-estimation-mmpose" target="_blank" rel="noreferrer">
+              Dépôt GitHub
+            </a>
+          </div>
+        </div>
+
+        <h3>Objectif du projet</h3>
+        <div>
           <p>
-            Le projet traite de la détection de la pose d'une main au piano à partir de vidéos
-            filmées du dessus, puis de la <strong>détection automatique des touches pressées</strong>.
-            Il s'inscrit dans le cadre d'un projet académique du double diplôme Math–Info.
+            Ce projet a été réalisé dans le cadre de l'UE <strong>Projet MIDL 2</strong> de ma double licence.
+            <br>
+            Le but de cette UE était d'implémenter la bibliothèque <strong><a class="link" href="https://github.com/open-mmlab/mmpose" target="_blank" rel="noreferrer">MMPose</a></strong> dans un contexte pratique, en binôme.
           </p>
           <p>
-            L'idée centrale est de combiner la puissance de MMPose pour l'estimation de pose
-            2D avec une modélisation géométrique du clavier de piano et une analyse temporelle
-            fine des trajectoires des doigts.
+            Le projet que l'on a choisi de faire porte sur l'<strong>analyse des mains dans des vidéos de piano filmées de dessus</strong>.
+            L'objectif est de suivre les mouvements d'une main, de détecter chaque touche pressée, puis d'essayer de <strong>prédire la prochaine note jouée</strong> avant qu'elle soit entièrement exécutée de manière itérative.
+          </p>
+          <p>
+            <strong>MMPose</strong> est une librairie d'<strong>OpenMMLab</strong> spécialisée dans l'<strong>estimation de pose</strong>.
+            Dans notre cas, elle sert à extraire les points clés d'une main : poignet, articulations et extrémités des doigts.
+          </p>
+          <p>
+            Notre projet peut se décomposer en <strong>3 étapes principales</strong>, qui sont précisées dans les sections suivantes.
+            <br>
+            N'hésitez pas à consulter le <strong><a class="link" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">rapport complet</a></strong> et/ou le <strong><a class="link" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> ci-dessus pour une explication plus détaillée.
+          </p>
+        </div>
+
+        <h3>Données et contraintes</h3>
+        <div>
+          <p>
+            Notre projet s'articule autour d'un petit dataset de <strong>vidéos réalisées par nous-mêmes</strong> : certaines vidéos servent à comparer les modèles sur des positions de main variées, d'autres sont filmées au-dessus d'un clavier afin d'analyser les appuis sur les touches.
+          </p>
+          <p>
+            Les <strong>vidéos</strong> les plus utiles pour l'évaluation sont celles <strong>jouées avec un seul doigt</strong> et associées à un fichier <strong>MIDI</strong>.
+            <br>
+            Le fichier MIDI fournit une référence temporelle sur les notes réellement jouées, ce qui permet de comparer les prédictions du pipeline aux événements attendus.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PIPELINE -->
+    <!-- MMPOSE -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Pipeline de traitement</h2>
-        <div class="two-columns">
-          <div>
-            <h3>Étapes principales</h3>
-            <ol class="project-steps">
-              <li>Détection des points clés de la main (poignet + doigts) via MMPose.</li>
-              <li>Calibrage de la géométrie du piano dans l'image (position des touches blanches/noires).</li>
-              <li>Suivi temporel des extrémités de doigts et détection des événements de pression.</li>
-              <li>Association de chaque pression à une note (par exemple <code>C4</code>, <code>G4</code>, <code>F#5</code>).</li>
-            </ol>
-          </div>
-          <div>
-            <h3>Sorties du système</h3>
-            <ul>
-              <li>Liste structurée des notes détectées (format Python / CSV).</li>
-              <li>Possibilité de reconstruire la séquence de jeu ou de la réutiliser dans d'autres outils.</li>
-              <li>
-                Visualisations intermédiaires (superposition des keypoints, diagnostics sur les
-                trajectoires de doigts).
-              </li>
-            </ul>
-            <p>
-              Le projet est conçu pour être exécuté principalement sur Google Colab, avec une
-              configuration CPU reproductible pour MMPose.
-            </p>
-          </div>
+        <h2>1. Installation de MMPose &amp; choix du modèle</h2>
+        <h3>Sélection du modèle MMPose</h3>
+        <div>
+          <p>
+            La première étape du projet a consisté à installer <strong>MMPose</strong> et à comparer <strong>10 modèles</strong> de détection de points clés de la main.
+            <br>
+            Ces modèles provenaient de deux datasets principaux, <strong>OneHand10K</strong> et <strong>RHD2D</strong>, chacun ayant 5 variantes, telles que : HRNet, DARK, UDP, ResNet-50 et MobileNetV2.
+          </p>
+          <p>
+            Après comparaison visuelle sur plusieurs vidéos, notamment une vidéo de pen spinning et des vidéos de main avec fort contraste, le modèle retenu a été <strong>Onehand10k_Hrnetv2_Dark</strong>, pour sa robustesse et sa stabilité nettement supérieure aux autres modèles.
+          </p>
+        </div>
+
+        <h3>Extraction et suivi des points clés</h3>
+        <div>
+          <p>
+            Une fois le modèle choisi, chaque frame de la vidéo est analysée avec <strong>MMPose</strong> afin d'extraire les coordonnées des différents joints (articulations) de la main.
+            <br>
+            Pour <strong>améliorer la qualité de détection</strong>, nous avons intégré un système de "boîte englobante" dans le pipeline : MMPose ne traite pas chaque image en entier, il utilise une <strong>boîte englobante centrée sur la main</strong>, qui est progressivement adaptée d'une frame à la suivante.
+            <br>
+            Les coordonnées détectées sont ensuite sauvegardées dans des fichiers <code>csv</code>.
+          </p>
+          <p>
+            Cette première étape transforme la vidéo en données temporelles exploitables : pour chaque instant <code>t</code>, on dispose d'une <strong>estimation de la position de chaque articulation de la main observée</strong>.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- RESSOURCES -->
+    <!-- ANALYSE DES TRAJECTOIRES -->
     <section class="section">
       <div class="container">
-        <h2>Ressources</h2>
-        <div class="two-columns">
-          <div>
-            <ul>
-              <li>Notebook principal du projet (pipeline complet).</li>
-              <li>Instructions d'exécution détaillées pour Google Colab.</li>
-              <li>Exemples de vidéos et paramètres de configuration.</li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              Le dépôt GitHub contient la marche à suivre pour adapter le pipeline à vos propres
-              vidéos (calibrage du piano, choix des doigts à suivre, sélection de modèles MMPose).
-            </p>
-          </div>
+        <h2>2. Analyse des trajectoires &amp; détection des touches pressées</h2>
+        <h3>Étalonnage du piano</h3>
+        <div>
+          <p>
+            Pour relier les coordonnées de chaque extrémité de la main aux notes jouées sur le piano, on a défini une <strong>méthode d'analyse géométrique du clavier</strong> dans l'image.
+            <br>
+            À partir d'un <strong>ensemble de droites verticales et horizontales délimitant chaque touche du piano</strong>, on arrive à associer chaque position <code>(x, y)</code> à une touche du piano (blanche, noire ou en dehors), sous l'<strong>hypothèse que le clavier reste fixe et horizontal</strong> dans la vidéo.
+          </p>
+        </div>
+
+        <h3>Détection des appuis</h3>
+        <div>
+          <p>
+            Cependant, pour détecter un appui de touche réel on a également besoin de <strong>séparer les moments où l'on survole une touche et ceux où l'on appuie</strong> effectivement sur celle-ci.
+          </p>
+          <p>
+            Pour remédier à ce problème, on a choisi d'<strong>étudier chaque doigt indépendamment</strong> les uns des autres en les représentant par une <strong>suite de distances verticales relatives entre le poignet et l'extrémité du doigt analysé</strong>.
+            <br>
+            On obtient donc autant de signaux temporels que de doigts étudiés.
+          </p>
+          <p>
+            Suite à une analyse de l'évolution des signaux sur des vidéos témoins, on a observé que lorsque la trajectoire d'un doigt présente une <strong>forme caractéristique</strong> (distance se réduisant et ré-augmentant rapidement), cela correspond à un appui sur une touche.
+          </p>
+          <p>
+            Pour <strong>réduire le bruit</strong> lié aux estimations de MMPose, chaque doigt / signal analysé est découpé en segments correspondant à une même touche, puis est lissé avec un <strong>filtre de Savitzky—Golay</strong>.
+            <br>
+            Les <strong>pics</strong> suffisamment marqués sont ensuite conservés comme candidats d'appuis.
+          </p>
+          <p>
+            Cette méthode permet de retrouver une <strong>très grande partie des instants d'appui réels (~95%)</strong>, avec la <strong>bonne note dans la majorité des cas</strong>.
+            <br>
+            Les erreurs restantes concernent surtout des prédictions de touches voisines ou des faux positifs lorsque la trajectoire devient ambiguë.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREDICTION -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>3. Prédiction de la prochaine note jouée</h2>
+        <h3>Modèle de prédiction par extrapolation dynamique</h3>
+        <div>
+          <p>
+            La dernière partie du projet cherchait à <strong>estimer itérativement la prochaine touche pressée</strong> avant que le mouvement ne soit complètement terminé.
+            <br>
+            Pour construire et évaluer cette tâche, les fichiers <strong>MIDI</strong> servent de <strong>réalité terrain</strong> : ils indiquent les instants et les notes réellement jouées, mais le modèle n'utilise qu'une portion de la trajectoire observée pour <strong>prédire la touche finale</strong>.
+          </p>
+          <p>
+            Concrètement, on <strong>observe la position d'un doigt</strong> entre la dernière note jouée et un point situé à environ <strong>80%</strong> du temps de trajet vers l'appui suivant, puis on <strong>extrapole</strong> sa trajectoire pour estimer la touche qui sera pressée.
+            <br>
+            Pour estimer / retrouver la note jouée, on a utilisé un modèle d'<strong>extrapolation linéaire à coefficient dynamique</strong> : la vitesse d'un doigt n'étant pas constante, le coefficient dépend du temps restant avant l'appui, pour mieux représenter l'anticipation du geste du pianiste.
+          </p>
+          <p>
+            On estime ensuite une coordonnée de la prochaine touche pressée et on obtient la touche correspondante via la <strong>représentation géométrique du piano</strong> établie dans la partie 2.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="section">
+      <div class="container">
+        <h2>Bilan et limites</h2>
+        <div>
+          <p>
+            Notre projet nous a permis de montrer qu'<strong>MMPose</strong> peut fournir une <strong>base exploitable pour analyser des mouvements de main au piano</strong>, à condition que la vidéo d'entrée ait un cadre fixe, soit contrastée et soit alignée par rapport au piano.
+          </p>
+          <p>
+            Lorsque ces conditions sont remplies, la combinaison entre estimation de pose, géométrie du clavier et analyse temporelle permet d'obtenir une détection pertinente des touches pressées :
+          </p>
+          <ul class="container-list">
+            <li><strong>~95% des instants d'appui correctement détectés sur les vidéos témoins</strong>,</li>
+            <li><strong>~80% des touches pressées correctement prédites</strong>.</li>
+          </ul>
+          <p>
+            Les <strong>principales limites</strong> concernent des <strong>situations moins restrictives</strong> : plus de flou de mouvement, plusieurs mains visibles en même temps (superpositions, occlusions), faible contraste ou cadre non fixe.
+            <br>
+            Une amélioration naturelle consisterait à étendre le pipeline actuel à des vidéos plus générales.
+          </p>
         </div>
       </div>
     </section>
@@ -142,7 +259,7 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>&copy; <span id="year"></span> Tom Le Ber</span>
       <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
     </div>
   </footer>

@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>TER IRIT | Jumeau numérique sportif – Tom Le Ber</title>
+  <title>TER IRIT | Segmentation et réinsertion vidéo — Tom Le Ber</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Stage de recherche (TER) à l'IRIT : jumeau numérique de mouvement sportif via NLF, SAM2 et recomposition vidéo." />
+  <meta name="description" content="TER IRIT : création d'un pipeline de vision par ordinateur pour segmenter des vidéos de pole dance, réinsérer la personne sur un nouveau fond et évaluer quantitativement la qualité de reconstruction vidéo." />
   <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="canonical" href="https://tomleber.fr/irit" />
@@ -30,18 +30,33 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="hero-kicker">Stage de recherche (TER) · IRIT</p>
-          <h1>Jumeau numérique de mouvements sportif</h1>
+          <p class="hero-kicker">Stage de recherche (TER) · IRIT · L3 MIDL</p>
+          <h1>Jumeau numérique de vidéos de pole dance</h1>
           <p class="hero-subtitle">
-            À partir de vidéos réelles de danse ou de sport, ce projet construit un
-            <strong>jumeau numérique</strong> du mouvement en combinant estimation de pose (NLF &amp; MMPose),
-            segmentation avec SAM&nbsp;2 et recomposition du sujet sur de nouveaux arrière-plans.
+            <strong>Travail d'étude et de recherche</strong> autour de la segmentation vidéo, de l'analyse de pose et de la réinsertion d'une personne dans un nouveau fond.
+          </p>
+          <div class="project-text-group">
+            <p class="hero-subtitle">
+              Ce TER était axé autour de deux problématiques principales :
+            </p>
+            <ol class="container-list project-compact-list">
+              <li>
+                Comment créer un <strong>jumeau numérique</strong> de vidéos de pole dancers en mouvement le plus qualitatif possible, via un pipeline de <strong>vision par ordinateur</strong> combinant <strong>estimation de pose</strong>, <strong>segmentation</strong> et <strong>réinsertion</strong> dans de nouveaux fonds.
+              </li>
+              <li>
+                Comment proposer des <strong>métriques quantitatives</strong> permettant d'estimer la qualité de reconstruction vidéo obtenue.
+              </li>
+            </ol>
+          </div>
+          <p class="hero-subtitle">
+            Réalisé en binôme avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>.
           </p>
           <div class="hero-actions">
-            <a class="btn primary"
-               href="https://github.com/tominien/sports-digital-twin-irit-research-internship"
-               target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://github.com/tominien/sports-digital-twin-irit-research-internship" target="_blank" rel="noreferrer">
               Voir le projet sur GitHub
+            </a>
+            <a class="btn primary" href="./docs/rapport_ter_irit.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport du TER (PDF)
             </a>
             <a class="btn ghost" href="/#projects">
               ← Retour aux projets
@@ -50,90 +65,203 @@
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-name">Sports Motion Digital Twin</p>
-            <p class="hero-role">TER — L3 Math &amp; Info</p>
+            <p class="hero-name">TER IRIT</p>
+            <p class="hero-role">Segmentation, analyse de pose et réinsertion vidéo.</p>
             <ul class="hero-meta">
-              <li>Pose estimation (NLF &amp; MMPose)</li>
-              <li>Segmentation SAM&nbsp;2</li>
-              <li>Recomposition vidéo</li>
+              <li>Vision par ordinateur</li>
+              <li>NLF + SAM 2</li>
+              <li>SAM 3</li>
+              <li>Réinsertion vidéo</li>
+              <li>Métriques de qualité</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RÉSUMÉ -->
+    <!-- PRESENTATION GENERALE -->
     <section class="section">
       <div class="container">
-        <h2>Résumé du projet</h2>
-        <div class="two-columns">
+        <h2>Présentation générale</h2>
+        <div class="action-block">
+          <p class="action-block-text">
+            Les ressources suivantes permettent de consulter le rapport complet du TER et les notebooks Google Colab associés aux différentes versions du projet.
+            Les liens Colab ci-dessous sont pour l'instant des liens temporaires vers l'accueil du site.
+          </p>
+          <div class="action-row">
+            <a class="btn primary" href="./docs/rapport_ter_irit.pdf" target="_blank" rel="noreferrer">
+              Voir le rapport complet (PDF)
+            </a>
+            <a class="btn ghost" href="https://github.com/tominien/sports-digital-twin-irit-research-internship" target="_blank" rel="noreferrer">
+              Dépôt GitHub
+            </a>
+          </div>
+        </div>
+
+        <h3>Contexte du TER</h3>
+        <div>
           <p>
-            Ce travail s'inscrit dans un stage de recherche de troisième année à l'IRIT. L'objectif est
-            d'étudier une chaîne complète permettant de <strong>transférer un mouvement réel</strong> (danse, sport)
-            vers de nouveaux environnements visuels, tout en restant fidèle à la cinématique d'origine.
+            Ce TER s'inscrit dans une problématique plus générale liée à la <strong>manipulation vidéo</strong> et aux <strong>deepfakes</strong> : avant de modifier ou de réinsérer un élément dans une vidéo, il faut souvent être capable de l'isoler précisément.
           </p>
           <p>
-            Le cœur du projet est un <strong>notebook Google Colab</strong> orienté expérimentation :
-            comparaison de méthodes d'estimation de pose, analyse des échecs (occlusions, poses extrêmes),
-            qualité de la segmentation et de la recomposition, et pistes de couplage avec des
-            modèles de diffusion pour générer des décors plus complexes.
+            Dans notre cas, nous avons étudié des <strong>vidéos de pole dance</strong>. Le but était de détourer automatiquement la personne présente dans la scène, puis de la réinsérer sur un nouveau fond. Ce choix rend le problème difficile : la barre de pole passe régulièrement devant et derrière le corps, les postures sont extrêmes, les cheveux et les membres fins sont difficiles à segmenter, et la cohérence temporelle doit être conservée sur toute la vidéo.
+          </p>
+          <p>
+            L'objectif n'était donc pas seulement de produire un masque sur une image isolée, mais de construire une <strong>chaîne de traitement vidéo complète</strong> : extraction des frames, analyse de pose, segmentation, reconstruction sur fond noir, réinsertion sur un nouveau fond, puis évaluation qualitative et quantitative des résultats.
+          </p>
+        </div>
+
+        <h3>Données et protocole expérimental</h3>
+        <div>
+          <p>
+            Le projet repose sur un ensemble d'environ <strong>50 vidéos de pole dance</strong>. La majorité des expérimentations décrites dans le rapport sont réalisées sur une vidéo témoin de <strong>1329 frames</strong>, suffisamment longue pour observer des changements de posture, des variations de vitesse et des erreurs temporelles de segmentation.
+          </p>
+          <p>
+            À partir de la version V3 du notebook, le protocole général consiste à charger une vidéo, extraire ses frames, obtenir des informations géométriques sur la personne, guider une méthode de segmentation vidéo, produire une vidéo détourée, réinsérer la personne dans un nouveau décor, puis analyser la qualité de la reconstruction obtenue.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PIPELINE -->
+    <!-- NOTEBOOKS ET VERSIONS -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Pipeline expérimental</h2>
-        <ol class="project-steps">
-          <li>
-            <strong>Estimation de pose avec NLF et MMPose</strong> : extraction de la pose 2D du danseur
-            ou du sportif, puis comparaison de la robustesse des modèles face aux mouvements rapides,
-            aux occlusions et aux poses atypiques.
-          </li>
-          <li>
-            <strong>Segmentation avec SAM&nbsp;2</strong> : segmentation image par image de la personne,
-            suivi du masque dans le temps et raffinement pour obtenir un détourage propre du sujet.
-          </li>
-          <li>
-            <strong>Reprojection sur de nouveaux fonds</strong> : alignement du sujet avec des repères
-            géométriques simples (par exemple une barre verticale) et recomposition du mouvement sur
-            d'autres vidéos ou images d'arrière-plan.
-          </li>
-          <li>
-            <strong>Ouverture vers les modèles de diffusion</strong> : réflexion sur la façon dont la
-            chaîne “pose + segmentation + compositing” pourrait être combinée à des modèles de type
-            Stable Diffusion pour enrichir les scènes.
-          </li>
-        </ol>
+        <h2>Évolution du projet : quatre versions de notebook</h2>
+        <p class="section-intro">
+          Le travail s'est structuré autour de quatre versions principales de notebooks Google Colab. Chaque version correspond à une étape méthodologique différente, plutôt qu'à une simple copie du code précédent.
+        </p>
+
+        <div class="action-block">
+          <p class="action-block-text">
+            Liens temporaires vers les quatre notebooks mentionnés dans le rapport :
+          </p>
+          <div class="action-row">
+            <a class="btn ghost" href="/">Google Colab V1</a>
+            <a class="btn ghost" href="/">Google Colab V2</a>
+            <a class="btn ghost" href="/">Google Colab V3</a>
+            <a class="btn ghost" href="/">Google Colab V4</a>
+          </div>
+        </div>
+
+        <h3>V1 et V2 : analyse de pose et premier pipeline</h3>
+        <div>
+          <p>
+            La <strong>V1</strong> est consacrée à l'étude de <strong>NLF</strong>, un outil d'estimation de pose permettant de détecter la personne et de récupérer des joints 2D/3D. Cette première étape a permis de comprendre ce que l'analyse de pose pouvait apporter au pipeline : localisation approximative du corps, visualisation du squelette et estimation de la robustesse temporelle.
+          </p>
+          <p>
+            La <strong>V2</strong> introduit <strong>SAM 2</strong> pour réaliser la segmentation. L'idée est alors d'utiliser les informations de pose comme points d'ancrage, puis de propager le masque sur la vidéo. Cette version constitue le premier véritable pipeline de segmentation et de reconstruction vidéo du projet.
+          </p>
+        </div>
+
+        <h3>V3 et V4 : deux stratégies complémentaires</h3>
+        <div>
+          <p>
+            La <strong>V3</strong> est la version la plus aboutie reposant sur la combinaison <strong>NLF + SAM 2</strong>. Elle conserve l'analyse de pose pour guider régulièrement la segmentation, puis ajoute un travail important sur l'évaluation des résultats. Cette version est relativement rapide et sert de base méthodologique pour l'étude des métriques.
+          </p>
+          <p>
+            La <strong>V4</strong> change complètement de stratégie : elle s'appuie directement sur <strong>SAM 3</strong>, sans passer par NLF pour guider la segmentation. Le modèle est piloté par un prompt texte, puis propage la segmentation dans la vidéo. Cette approche donne des masques généralement plus cohérents, notamment sur les cheveux et les parties fines du sujet, mais elle demande un temps de calcul beaucoup plus élevé.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- EXEMPLES & RESSOURCES -->
+    <!-- SEGMENTATION -->
     <section class="section">
       <div class="container">
-        <h2>Exemples et ressources</h2>
-        <div class="two-columns">
-          <div>
-            <h3>Exemples d'utilisation</h3>
-            <ul>
-              <li>Tester la robustesse de différents modèles de pose sur des vidéos de pole dance.</li>
-              <li>Analyser la qualité de la segmentation sur des mouvements rapides ou partiellement cachés.</li>
-              <li>Créer des démonstrateurs visuels de jumeaux numériques pour des scénarios sportifs.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Pour aller plus loin</h3>
-            <ul>
-              <li>Notebook principal : exécution complète du pipeline sous Google Colab (CPU).</li>
-              <li>Dossier <code>data/</code> contenant un exemple de séquence vidéo découpée en images.</li>
-              <li>Résultats illustratifs dans le dossier <code>results/</code>.</li>
-            </ul>
-            <p>
-              Toutes les instructions d'exécution détaillées se trouvent dans le README du dépôt GitHub.
-            </p>
-          </div>
+        <h2>Segmentation vidéo et reconstruction</h2>
+        <h3>Pipeline V3 : NLF + SAM 2</h3>
+        <div>
+          <p>
+            Dans la V3, <strong>NLF</strong> fournit des joints 2D qui servent à guider périodiquement <strong>SAM 2</strong>. Cette stratégie permet de limiter les dérives de segmentation qui apparaissent lorsque SAM 2 est lancé seul sur une vidéo longue, en particulier lorsque la danseuse passe devant ou derrière la barre.
+          </p>
+          <p>
+            Sur la vidéo témoin, cette approche donne un pipeline exploitable en environ <strong>17 minutes</strong> pour 1329 frames. Elle permet d'obtenir une vidéo détourée et d'enchaîner ensuite sur la réinsertion, mais elle reste imparfaite : certaines structures fines, notamment les cheveux ou certaines extrémités du corps, sont parfois perdues ou mal suivies.
+          </p>
+        </div>
+
+        <h3>Pipeline V4 : SAM 3</h3>
+        <div>
+          <p>
+            La V4 repose sur une segmentation directement pilotée par <strong>SAM 3</strong>. Plusieurs prompts texte sont testés sur une frame de référence, puis le meilleur prompt est utilisé pour segmenter la vidéo par blocs successifs.
+          </p>
+          <p>
+            Cette version améliore nettement la qualité visuelle des masques sur la vidéo témoin. La silhouette est plus continue, les cheveux sont mieux conservés et la segmentation est globalement plus cohérente temporellement. En contrepartie, le temps d'exécution augmente fortement : l'exécution complète demande environ <strong>1 h 30</strong> sur la vidéo principale, soit environ 4 à 5 fois plus que la V3.
+          </p>
+          <p>
+            Les deux pipelines ne doivent donc pas être vus comme strictement concurrents : la V3 est plus économique et adaptée aux expérimentations rapides, tandis que la V4 est plus coûteuse mais plus convaincante lorsque la qualité visuelle de la segmentation est prioritaire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REINSERTION -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Réinsertion sur un nouveau fond</h2>
+        <div>
+          <p>
+            Une fois la vidéo détourée obtenue, la dernière étape consiste à <strong>réinsérer la danseuse dans un nouveau décor</strong>. Cette étape montre que la segmentation n'est pas seulement une sortie intermédiaire : elle peut être utilisée dans une chaîne complète de transformation vidéo.
+          </p>
+          <p>
+            Dans le notebook, la réinsertion est réalisée à partir d'une transformation géométrique simple : deux points de référence sont choisis sur la barre de pole dans la vidéo originale et sur l'image de destination. Ces points permettent de calculer une transformation de similarité combinant rotation, changement d'échelle et translation.
+          </p>
+          <p>
+            Cette méthode fournit une première démonstration fonctionnelle, mais elle reste dépendante de réglages manuels. La qualité finale dépend donc à la fois de la précision du masque, de la stabilité temporelle du détourage et du bon alignement géométrique entre la vidéo et le nouveau fond.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRIQUES -->
+    <section class="section">
+      <div class="container">
+        <h2>Évaluation quantitative des résultats</h2>
+        <p class="section-intro">
+          Une partie importante du TER a consisté à chercher des métriques permettant de repérer automatiquement les erreurs de segmentation, au lieu de se limiter à une inspection visuelle frame par frame.
+        </p>
+
+        <h3>Métriques sur les masques</h3>
+        <div>
+          <p>
+            La première famille de métriques repose sur l'<strong>aire des masques</strong> : on mesure le nombre de pixels appartenant au sujet, puis on étudie les variations et accélérations de cette aire au cours du temps. Une variation brutale peut indiquer une disparition partielle du corps, une inclusion du fond ou une erreur de segmentation.
+          </p>
+          <p>
+            Une deuxième approche utilise la <strong>distance de Bhattacharyya</strong> sur des histogrammes projetés des masques. L'objectif est de mesurer la dissimilarité entre deux masques consécutifs ou entre un masque et une fenêtre de masques voisins. Cette méthode donne une mesure de stabilité temporelle, mais elle identifie plus facilement les zones stables que les frames réellement problématiques.
+          </p>
+          <p>
+            Ces métriques ont été comparées à une annotation manuelle au moyen de <strong>matrices de confusion</strong>. Les résultats montrent que les indicateurs simples sont utiles pour guider l'inspection, mais qu'ils ne suffisent pas à produire un score final fiable de qualité de reconstruction vidéo.
+          </p>
+        </div>
+
+        <h3>Aidemos / Convert Body To 3D</h3>
+        <div>
+          <p>
+            Nous avons également exploré une métrique plus géométrique basée sur <strong>Aidemos / Convert Body To 3D</strong>, correspondant à <strong>SAM 3D Body</strong>. L'idée est de ne plus regarder seulement la forme du masque, mais la cohérence du corps reconstruit à partir de ce masque.
+          </p>
+          <p>
+            Pour chaque transition suspecte, le calque RGB est recadré puis fourni à SAM 3D Body, qui produit des points-clés 3D et leurs projections 2D. Une distance de <strong>Procrustes normalisée</strong> permet ensuite de comparer deux squelettes consécutifs et de repérer les sauts corporels anormaux.
+          </p>
+          <p>
+            Cette approche est prometteuse car elle détecte des erreurs liées à la cohérence globale du corps : disparition d'un membre, fusion avec la barre, recadrage incohérent ou changement brutal de silhouette. Elle reste cependant coûteuse et sensible aux échecs de reconstruction, ce qui en fait pour l'instant une métrique exploratoire plutôt qu'un score final automatique.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Bilan et perspectives</h2>
+        <div>
+          <p>
+            Au terme du TER, nous avons obtenu deux pipelines exploitables pour la segmentation de vidéos de pole dance : un pipeline <strong>NLF + SAM 2</strong>, plus rapide et adapté aux expérimentations, et un pipeline <strong>SAM 3</strong>, plus lent mais plus convaincant visuellement.
+          </p>
+          <p>
+            Le projet montre aussi que la difficulté ne réside pas seulement dans le choix d'un modèle de segmentation. Les positions extrêmes, les auto-occlusions, la barre de pole, les cheveux et les changements rapides de posture rendent indispensable une réflexion sur la stabilité temporelle et sur l'évaluation quantitative des résultats.
+          </p>
+          <p>
+            Les perspectives principales concernent l'<strong>optimisation du pipeline SAM 3</strong>, le raffinement des <strong>métriques de qualité</strong>, l'automatisation de la <strong>réinsertion sur un nouveau fond</strong> et la construction d'un score plus robuste combinant plusieurs indicateurs complémentaires.
+          </p>
         </div>
       </div>
     </section>
@@ -141,7 +269,7 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>&copy; <span id="year"></span> Tom Le Ber</span>
       <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
     </div>
   </footer>

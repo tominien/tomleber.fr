@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Hackathon Enedis | Reconstruction de courbes Linky – Tom Le Ber</title>
+  <title>Tom Le Ber — Hackathon Enedis | Reconstruction de courbes Linky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Hackathon Enedis : reconstruction de segments manquants de courbes de charge Linky via régression (ridge + gradient boosting)."/>
   <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
@@ -33,16 +33,25 @@
           <p class="hero-kicker">Hackathon · Enedis</p>
           <h1>Reconstruction de courbes de consommation électrique Linky</h1>
           <p class="hero-subtitle">
-            Pipeline complet pour reconstruire des segments manquants de courbes de charge <strong>Linky</strong> : régression ridge & gradient boosting et feature engineering du modèle.
+            <strong>Hackathon</strong> sur l'<strong>intelligence artificielle</strong>, organisé par <strong>Enedis</strong> sur le site <strong><a class="link" href="https://challengedata.ens.fr/challenges/160" target="_blank" rel="noreferrer">Challenge Data</a></strong>.
           </p>
           <p class="hero-subtitle">
-            Classements concours : <strong>12ᵉ/119</strong> au classement national (<a class="link" href="https://challengedata.ens.fr/participants/challenges/160/ranking/public" target="_blank" rel="noreferrer">site</a>) et <strong>1ᵉʳ/39</strong> à l'université.
+            Implémentation d'un pipeline complet de reconstruction de courbes incomplètes de consommation électrique de compteurs <strong>Linky</strong> par un algorithme d'IA combinant <strong>régression ridge</strong> &amp; <strong>gradient boosting</strong> et <strong>feature engineering</strong> du modèle.
           </p>
+          <div class="project-text-group">
+            <p class="hero-subtitle">
+              Classements :
+            </p>
+            <ul class="container-list project-compact-list">
+              <li><strong>12ᵉ/119 au classement national (<a class="link" href="https://challengedata.ens.fr/participants/challenges/160/ranking/public" target="_blank" rel="noreferrer">site</a>)</strong></li>
+              <li><strong>1ᵉʳ/39 à l'université</strong></li>
+            </ul>
+          </div>
           <div class="hero-actions">
             <a class="btn primary" href="https://github.com/tominien/enedis-hackathon-electricity-load-curve-reconstruction" target="_blank" rel="noreferrer">
               Voir le projet sur GitHub
             </a>
-            <a class="btn primary" href="https://colab.research.google.com/drive/1Dczu6DCOyHCny-PEBJHWTO9YrN2k3U1q?usp=sharing">
+            <a class="btn primary" href="https://colab.research.google.com/drive/1Dczu6DCOyHCny-PEBJHWTO9YrN2k3U1q?usp=sharing" target="_blank" rel="noreferrer">
               Voir le Google Colab du projet
             </a>
             <a class="btn ghost" href="/#projects">
@@ -52,91 +61,103 @@
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-name">Enedis Linky Load Curve</p>
-            <p class="hero-role">Hackathon IA</p>
+            <p class="hero-name">Hackathon Enedis</p>
+            <p class="hero-role">Reconstruction de courbes Linky</p>
             <ul class="hero-meta">
               <li>Séries temporelles</li>
               <li>Ridge + Gradient Boosting</li>
-              <li>MAE sur points manquants</li>
+              <li>Feature Engineering</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RÉSUMÉ -->
+    <!-- PRESENTATION GENERALE -->
     <section class="section">
       <div class="container">
-        <h2>Contexte du challenge</h2>
-        <div class="hero-actions">
-          <a class="btn ghost" href="https://challengedata.ens.fr/participants/challenges/160/ranking/public">
-            Site Web du Hackathon
-          </a>
+        <h2>Présentation générale</h2>
+        <div class="action-block">
+          <p class="action-block-text">
+            Le bouton suivant vous amène à une description détaillée du challenge ainsi qu'au classement des participants.
+            <br>
+            J'y ai participé sous le pseudonyme <strong>tominien</strong>.
+          </p>
+          <div class="action-row">
+            <a class="btn ghost" href="https://challengedata.ens.fr/participants/challenges/160/ranking/public" target="_blank" rel="noreferrer">
+              Site Web du Hackathon
+            </a>
+          </div>
         </div>
-        <div class="two-columns">
+
+        <h3>Objectif du challenge</h3>
+        <div>
           <p>
-            Le challenge, proposé par Enedis sur la plateforme ChallengeData, consiste à
-            <strong>reconstituer des courbes de charge quotidiennes</strong> à partir de données partiellement
-            observées. Pour un ensemble d'utilisateurs, certaines journées sont complètes, d'autres
-            présentent des “trous” à combler.
+            Ce challenge a été proposé par <strong>Enedis</strong> sur la <strong>plateforme ChallengeData</strong>.
+            <br>
+            L'objectif de ce challenge était de construire un <strong>modèle d'intelligence artificielle</strong> complétant de la meilleure manière possible des trous de données dans la consommation de certains compteurs Linky.
           </p>
           <p>
-            L'objectif est de prédire au mieux ces valeurs manquantes sur un jeu de test, en minimisant
-            une erreur de type <strong>Mean Absolute Error (MAE)</strong> sur les points masqués. Le projet
-            met l'accent sur la qualité des features temporelles et sur la robustesse du modèle aux
-            profils de consommation variés.
+            3 fichiers étaient fournis :
+          </p>
+          <ul class="container-list project-compact-list">
+            <li><strong><code>x_train.csv</code></strong> &amp; <strong><code>y_train.csv</code></strong> : Deux <strong>dataframes d'entraînement</strong> distincts, contenant respectivement <strong>20000 et 37140 courbes de compteurs Linky complètes</strong> (mesures toutes les 30 minutes sur 22 jours, exprimées en Watts), suivis de <strong>1000 courbes trouées</strong>, à compléter.</li>
+            <li><strong><code>x_test.csv</code></strong> : Un <strong>dataframe solution</strong> du premier dataframe (<code>x_train.csv</code>) contenant les <strong>1000 courbes des compteurs Linky</strong> trouées, <strong>complétées</strong> avec leurs vraies valeurs.</li>
+          </ul>
+          <p>
+            Le but était de <strong>prédire</strong> l'<strong>ensemble des valeurs manquantes</strong> des <strong>1000 courbes de consommation trouées</strong> du fichier <code>y_train.csv</code>.
+            <br>
+            La méthode d'évaluation était une <strong>erreur</strong> de type <strong>Mean Absolute Error (MAE)</strong> sur les points masqués, que l'on devait minimiser.
+          </p>
+        </div>
+
+        <h3>Contexte du challenge</h3>
+        <div>
+          <p>
+            Ce challenge a été réalisé en <strong>binôme</strong>, dans le cadre de l'UE <strong>Intelligence Artificielle</strong> de ma double licence.
+          </p>
+          <p>
+            L'objectif donné était de <strong>battre le benchmark naïf</strong> (interpolation linéaire simple, MAE=104W) et d'<strong>obtenir le meilleur classement possible sur le leaderboard public</strong> en développant un modèle d'intelligence artificielle, puis de faire une <strong>présentation orale</strong> de notre démarche et de nos résultats en s'aidant d'un <strong>notebook Google Colab</strong>.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PIPELINE -->
+    <!-- APPROCHE ET RESULTATS -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Pipeline de modélisation</h2>
-        <div class="two-columns">
-          <div>
-            <h3>Préparation des données</h3>
-            <ul>
-              <li>Manipulation de fichiers volumineux (<code>x_train</code>, <code>y_train</code>, <code>x_test</code>).</li>
-              <li>Construction de jeux de données exploitables (séparation jours complets / jours troués).</li>
-              <li>Création de variables dérivées pour capturer des motifs de charge (profils horaires, moyennes, etc.).</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Modèles &amp; évaluation</h3>
-            <ul>
-              <li>Modèle de base en régression ridge pour capturer une structure linéaire globale.</li>
-              <li>Affinage avec des modèles de type gradient boosting.</li>
-              <li>Évaluation via MAE sur les points manquants, en suivant la métrique du challenge.</li>
-            </ul>
-            <p>
-              Le code est organisé autour d'un notebook principal et de fichiers Python
-              (<code>solution.py</code>, <code>utils.py</code>) pour une exécution plus automatisable.
-            </p>
-          </div>
+        <h2>Approche utilisée &amp; résultats obtenus</h2>
+        <div>
+          <p>
+            Le challenge mettait l'accent sur <strong>l'importance des features temporelles</strong> de chaque compteur Linky et sur la robustesse du modèle aux <strong>profils de consommation variés</strong>.
+          </p>
+          <p>
+            Comme chaque courbe de compteur Linky peut être vue comme une <strong>série temporelle</strong>, une première approche qu'on a abordée a été d'essayer de construire un modèle composé de <strong>neurones</strong> de type <strong>LSTM</strong>, pour capturer les <strong>dépendances temporelles des données</strong>.
+            <br>
+            Cependant, cette approche s'est révélée très peu efficace, obtenant une MAE de 103W après 10 heures d'entraînement, soit à peine mieux que le benchmark naïf.
+          </p>
+          <p>
+            Suite à une analyse approfondie des données, on a remarqué qu'il existait <strong>2 grands profils de consommation</strong> : les très gros consommateurs (ex : entreprises) et les petits consommateurs (ex : particuliers).
+          </p>
+          <p>
+            On a alors décidé de changer totalement de stratégie et on s'est tournés vers une <strong>stratégie combinant la Régression Ridge et le Gradient Boosting</strong> :
+          </p>
+          <ul class="container-list project-compact-list">
+            <li>La <strong>Régression Ridge</strong> (méthode de régression linéaire) pour <strong>éviter l'overfitting</strong> : En limitant la taille des coefficients et en améliorant la stabilité du modèle lorsque les features sont corrélées ou bruitées.</li>
+            <li>Le <strong>Gradient Boosting</strong> (méthode de somme d'arbres de décision) pour <strong>capturer les tendances non-linéaires</strong> : Le premier arbre capturant une tendance grossière et chaque arbre suivant corrigeant les erreurs du précédent par descente de gradient.</li>
+          </ul>
+          <p>
+            Pour finir, on a optimisé l'entièreté de nos <strong>hyperparamètres</strong> (proportion du poids de Ridge VS GB, nombre d'arbres GB, taux d'apprentissage, etc.) via <strong>Optuna</strong>, pour trouver la meilleure configuration possible.
+          </p>
+          <p>
+            Cette deuxième approche nous a permis d'obtenir une <strong>MAE</strong> de <strong>76W</strong>, nous classant <strong>12ᵉ/119</strong> sur le leaderboard public du challenge et <strong>premiers</strong> de notre promotion.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- RESSOURCES -->
-    <section class="section">
-      <div class="container">
-        <h2>Ressources</h2>
-        <div class="two-columns">
-          <div>
-            <ul>
-              <li>Site du challenge (description détaillée du jeu de données et de la tâche).</li>
-              <li>Explications sur le format des fichiers (<code>x_train</code>, <code>y_train</code>, <code>x_test</code>).</li>
-              <li>Code commenté pour la préparation, l'entraînement et la prédiction.</li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              Les données brutes dépassant la limite de taille de GitHub, elles doivent être téléchargées
-              depuis la plateforme ChallengeData, puis placées dans le dossier
-              <code>data/datasets/</code> avant exécution du code.
-            </p>
+        <div class="action-block">
+          <div class="action-row">
+            <a class="btn primary" href="https://colab.research.google.com/drive/1Dczu6DCOyHCny-PEBJHWTO9YrN2k3U1q?usp=sharing" target="_blank" rel="noreferrer">
+              Google Colab du projet
+            </a>
           </div>
         </div>
       </div>
@@ -145,7 +166,7 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <span>&copy; <span id="year"></span> Tom Le&nbsp;Ber</span>
+      <span>&copy; <span id="year"></span> Tom Le Ber</span>
       <span>Hébergé sur mon propre serveur · Ubuntu &amp; Nginx</span>
     </div>
   </footer>
