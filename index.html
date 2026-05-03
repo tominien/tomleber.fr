@@ -6,23 +6,67 @@
   <title>Tom Le Ber | Portfolio — Mathématiques, Informatique &amp; IA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Portfolio de Tom Le Ber, étudiant en L3 de double licence Mathématiques &amp; Informatique à l'Université de Toulouse. Projets en IA, vision par ordinateur, modélisation et data science." />
-  <link rel="icon" type="image/png" href="assets/img/profile_picture.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tom Le Ber — Portfolio Mathématiques, Informatique &amp; IA">
+  <meta property="og:description" content="Portfolio de Tom Le Ber : projets en intelligence artificielle, vision par ordinateur, modélisation mathématique et data science.">
+  <meta property="og:url" content="https://tomleber.fr/">
+  <meta property="og:image" content="https://tomleber.fr/assets/img/profile_picture.webp">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tom Le Ber — Portfolio Mathématiques, Informatique &amp; IA">
+  <meta name="twitter:description" content="Projets en IA, vision par ordinateur, modélisation mathématique et data science.">
+  <meta name="twitter:image" content="https://tomleber.fr/assets/img/profile_picture.webp">
+  <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="canonical" href="https://tomleber.fr/" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Tom Le Ber",
-      "url": "https://tomleber.fr/",
-      "sameAs": [
-        "https://github.com/tominien",
-        "https://www.linkedin.com/in/tom-le-ber-58185a358/",
-        "https://www.fiverr.com/tomleber/"
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://tomleber.fr/#website",
+        "name": "Tom Le Ber",
+        "url": "https://tomleber.fr/",
+        "inLanguage": "fr"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tomleber.fr/#person",
+        "name": "Tom Le Ber",
+        "url": "https://tomleber.fr/",
+        "image": "https://tomleber.fr/assets/img/profile_picture.png",
+        "description": "Étudiant en double licence Mathématiques & Informatique à l'Université de Toulouse, intéressé par l'intelligence artificielle, la vision par ordinateur, la modélisation mathématique et la data science.",
+        "jobTitle": "Étudiant en double licence Mathématiques & Informatique",
+        "sameAs": [
+          "https://github.com/tominien",
+          "https://www.linkedin.com/in/tom-le-ber-58185a358/",
+          "https://www.fiverr.com/tomleber/"
+        ],
+        "knowsAbout": [
+          "Mathématiques",
+          "Informatique",
+          "Intelligence artificielle",
+          "Vision par ordinateur",
+          "Modélisation mathématique",
+          "Data science"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://tomleber.fr/#profilepage",
+        "url": "https://tomleber.fr/",
+        "name": "Portfolio de Tom Le Ber",
+        "isPartOf": {
+          "@id": "https://tomleber.fr/#website"
+        },
+        "mainEntity": {
+          "@id": "https://tomleber.fr/#person"
+        },
+        "inLanguage": "fr"
+      }
+    ]
   }
   </script>
 </head>
@@ -30,7 +74,7 @@
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="/" aria-label="Accueil">
-        <img class="brand-avatar" src="assets/img/profile_picture.png" alt="Photo de profil" />
+        <img class="brand-avatar" src="assets/img/profile_picture-128.webp" alt="Photo de profil" width="38" height="38" />
         <span class="brand-name">Tom Le Ber</span>
       </a>
       <nav class="main-nav">
@@ -97,14 +141,14 @@
             <h3>Jumeau numérique de vidéos de pole dance</h3>
             <div class="project-text-group">
               <p>
-                <strong>Travail d'étude et de recherche</strong> (TER), axé autour de deux problématiques :
+                <strong>Travail d'étude et de recherche (TER)</strong> réalisé à l'<strong>IRIT</strong>, axé autour de <strong>deux problématiques</strong> :
               </p>
               <ol class="container-list project-compact-list">
                 <li>
-                  Comment créer un <strong>jumeau numérique</strong> de vidéos de pole danceurs en mouvement le plus qualitatif possible, via un pipeline de <strong>vision par ordinateur</strong> combinant <strong>estimation de pose</strong>, <strong>segmentation</strong> et <strong>réinsertion</strong> dans de nouveaux fonds.
+                  Comment créer un <strong>jumeau numérique</strong> de vidéos de pole danseurs en mouvement le plus qualitatif possible, via un pipeline de <strong>vision par ordinateur</strong> combinant <strong>estimation de pose</strong>, <strong>segmentation</strong> et <strong>réinsertion</strong> sur de nouveaux fonds.
                 </li>
                 <li>
-                  La recherche de <strong>métriques quantitatives</strong> d'estimation de la qualité de reconstruction vidéo.
+                  La recherche de <strong>métriques quantitatives d'estimation de la qualité de reconstruction</strong> des vidéos obtenues.
                 </li>
               </ol>
             </div>
@@ -117,7 +161,7 @@
                 <li>NLF</li>
                 <li>SAM2 &amp; SAM3</li>
               </ul>
-              <a class="btn project" href="/irit">Plus d'informations</a>
+              <a class="btn project" href="/irit/">Plus d'informations</a>
             </div>
           </article>
 
@@ -126,10 +170,13 @@
             <div class="project-tag">Stage volontaire · ENAC</div>
             <h3>Fresqu'AéroMaps · La fresque de l'aéronautique</h3>
             <p>
-              Fresqu'AéroMaps est une application interactive intervenant dans le cadre de l'atelier <strong><a class="link" href="https://learninghub.enac.fr/actualite/fresque-du-climat-et-fresquaero/" target="_blank" rel="noreferrer">fresque de l'aéronautique</a></strong>, inspiré de la <strong>fresque du climat</strong>. Cette activité est animée par l'<strong>ENAC</strong>.
+              <strong>Stage volontaire</strong> de <strong>2 mois</strong>, réalisé à l'<strong>ENAC</strong>.
             </p>
             <p>
-              Fresqu'AéroMaps est basée sur <strong><a class="link" href="https://aeromaps.isae-supaero.fr/" target="_blank" rel="noreferrer">AéroMAPS</a></strong> et vise à créer puis comparer différentes <strong>simulations de l'évolution du transport aérien</strong> jusqu'en 2050 au moyen de l'activation de multiples leviers d'action.
+              <strong>Fresqu'AéroMaps</strong> est une application interactive intervenant dans le cadre de l'atelier <strong><a class="link" href="https://learninghub.enac.fr/actualite/fresque-du-climat-et-fresquaero/" target="_blank" rel="noreferrer">fresque de l'aéronautique</a></strong>, inspiré de la <strong>fresque du climat</strong>. Cette activité est animée par l'<strong>ENAC</strong>.
+            </p>
+            <p>
+              Fresqu'AéroMaps est basée sur <strong><a class="link" href="https://aeromaps.isae-supaero.fr/" target="_blank" rel="noreferrer">AéroMAPS</a></strong> et vise à <strong>créer puis comparer</strong> différentes <strong>simulations de l'évolution du transport aérien</strong> jusqu'en 2050 au moyen de l'activation de multiples leviers d'action.
             </p>
             <div class="project-footer">
               <ul class="project-badges">
@@ -137,7 +184,7 @@
                 <li>AéroMAPS</li>
                 <li>Docker</li>
               </ul>
-              <a class="btn project" href="/enac">Plus d'informations</a>
+              <a class="btn project" href="/enac/">Plus d'informations</a>
             </div>
           </article>
 
@@ -149,7 +196,7 @@
               <strong>Hackathon</strong> sur l'<strong>intelligence artificielle</strong>, organisé par <strong>Enedis</strong> sur le site <strong><a class="link" href="https://challengedata.ens.fr/challenges/160" target="_blank" rel="noreferrer">Challenge Data</a></strong>.
             </p>
             <p>
-              Implémentation d'un pipeline complet de reconstruction de courbes incomplètes de consommation électrique de compteurs <strong>Linky</strong> par un algorithme d'IA combinant <strong>régression ridge</strong> &amp; <strong>gradient boosting</strong> et <strong>feature engineering</strong> du modèle.
+              Implémentation d'un pipeline complet de <strong>reconstruction de courbes</strong> incomplètes de <strong>consommation électrique</strong> de compteurs <strong>Linky</strong> par un algorithme d'IA combinant <strong>régression ridge</strong> &amp; <strong>gradient boosting</strong> et <strong>feature engineering</strong> du modèle.
             </p>
             <div class="project-text-group">
               <p>
@@ -167,7 +214,7 @@
                 <li>Gradient boosting</li>
                 <li>Feature Engineering</li>
               </ul>
-              <a class="btn project" href="/enedis">Plus d'informations</a>
+              <a class="btn project" href="/enedis/">Plus d'informations</a>
             </div>
           </article>
 
@@ -190,25 +237,28 @@
                 <li><strong>1ᵉʳ/25</strong> groupes à l'université</li>
               </ul>
             </div>
+            <p>
+              Réalisé en binôme avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>.
+            </p>
             <div class="project-footer">
               <ul class="project-badges">
                 <li>Vision par ordinateur</li>
                 <li>MMPose</li>
                 <li>Extrapolation linéaire &amp; prédiction</li>
               </ul>
-              <a class="btn project" href="/projet_midl_2">Plus d'informations</a>
+              <a class="btn project" href="/projet_midl_2/">Plus d'informations</a>
             </div>
           </article>
 
           <!-- Projet MIDL 1 -->
           <article class="project-card">
             <div class="project-tag">Projet académique · L2 MIDL</div>
-            <h3>Metropolis—Hastings &amp; problème du voyageur de commerce</h3>
+            <h3>Hastings—Metropolis &amp; problème du voyageur de commerce</h3>
             <p>
-              Co-rédaction d'un <strong>rapport mathématique</strong> de 44 pages en <strong>LaTeX</strong>, composé d'une <strong>étude théorique des chaînes de Markov</strong> et d'une <strong>implémentation de l'algorithme de Metropolis—Hastings</strong>.
+              Co-rédaction d'un <strong>rapport mathématique</strong> de 44 pages en <strong>LaTeX</strong>, composé d'une <strong>étude théorique des chaînes de Markov</strong> et d'une <strong>implémentation de l'algorithme de Hastings—Metropolis</strong>.
             </p>
             <p>
-              Démonstration de multiples résultats / preuves (théorème ergodique, de convergence, etc.) et implémentation Python appliquée au <strong>problème du voyageur de commerce</strong> (TSP).
+              <strong>Démonstration</strong> de multiples résultats / <strong>preuves</strong> (théorème ergodique, de convergence, etc.) et <strong>implémentation Python</strong> appliquée au <strong>problème du voyageur de commerce (TSP)</strong>.
             </p>
             <p>
               Réalisé en groupe de 4 avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>, <a class="link" href="https://github.com/CorentinVaillant" target="_blank" rel="noreferrer">Corentin Vaillant</a> et <a class="link" href="https://yolwoocle.com/" target="_blank" rel="noreferrer">Léo Bernard</a>.
@@ -219,7 +269,7 @@
                 <li>Chaînes de Markov</li>
                 <li>Méthodes MCMC &amp; TSP</li>
               </ul>
-              <a class="btn project" href="/projet_midl_1">Plus d'informations</a>
+              <a class="btn project" href="/projet_midl_1/">Plus d'informations</a>
             </div>
           </article>
         </div>

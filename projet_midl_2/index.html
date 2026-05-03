@@ -5,15 +5,16 @@
   <title>Tom Le Ber — Pose des mains au piano &amp; prédiction de touches</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Projet MIDL 2 : estimation de pose de la main au piano avec MMPose, suivi temporel des doigts, détection des touches pressées et prédiction de la prochaine note jouée." />
-  <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="canonical" href="https://tomleber.fr/projet_midl_2" />
+  <link rel="canonical" href="https://tomleber.fr/projet_midl_2/" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="/" aria-label="Retour à l'accueil">
-        <img class="brand-avatar" src="../assets/img/profile_picture.png" alt="Photo de profil" />
+        <img class="brand-avatar" src="../assets/img/profile_picture-128.webp" alt="Photo de profil" width="38" height="38" />
         <span class="brand-name">Tom Le Ber</span>
       </a>
       <nav class="main-nav">
@@ -57,7 +58,7 @@
             <a class="btn primary" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">
               Voir le rapport du projet (PDF)
             </a>
-            <a class="btn primary" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://colab.research.google.com/drive/142oXZ5i2kenOYsLv0u-_pylyE0gFmMVH?usp=sharing" target="_blank" rel="noreferrer">
               Voir le Google Colab du projet
             </a>
             <a class="btn ghost" href="/#projects">
@@ -68,12 +69,12 @@
         <div class="hero-card">
           <div class="hero-card-inner">
             <p class="hero-name">Piano Hand Pose Estimation</p>
-            <p class="hero-role">Analyse de vidéos de piano vues du dessus avec MMPose.</p>
+            <p class="hero-role"><strong>Analyse de vidéos de piano</strong> vues du dessus avec <strong>MMPose</strong> et <strong>prédiction intérative de la prochaine note jouée</strong>.</p>
             <ul class="hero-meta">
               <li>MMPose</li>
               <li>Suivi temporel des doigts d'une main</li>
               <li>Filtre de Savitzky—Golay</li>
-              <li>Prédiction itérative des notes</li>
+              <li>Prédiction itérative des prochaines touches pressées</li>
             </ul>
           </div>
         </div>
@@ -92,7 +93,7 @@
             <a class="btn primary" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">
               Voir le rapport complet (PDF)
             </a>
-            <a class="btn primary" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://colab.research.google.com/drive/142oXZ5i2kenOYsLv0u-_pylyE0gFmMVH?usp=sharing" target="_blank" rel="noreferrer">
               Google Colab du projet
             </a>
             <a class="btn ghost" href="https://github.com/tominien/piano-hand-pose-estimation-mmpose" target="_blank" rel="noreferrer">
@@ -119,7 +120,7 @@
           <p>
             Notre projet peut se décomposer en <strong>3 étapes principales</strong>, qui sont précisées dans les sections suivantes.
             <br>
-            N'hésitez pas à consulter le <strong><a class="link" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">rapport complet</a></strong> et/ou le <strong><a class="link" href="https://colab.research.google.com/drive/1WdfeBuRD5V11CIqJnaqNyppdxTonHN3d?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> ci-dessus pour une explication plus détaillée.
+            N'hésitez pas à consulter le <strong><a class="link" href="./docs/rapport_projet_midl_2.pdf" target="_blank" rel="noreferrer">rapport complet</a></strong> et/ou le <strong><a class="link" href="https://colab.research.google.com/drive/142oXZ5i2kenOYsLv0u-_pylyE0gFmMVH?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> ci-dessus pour une explication plus détaillée.
           </p>
         </div>
 
@@ -196,7 +197,7 @@
             Suite à une analyse de l'évolution des signaux sur des vidéos témoins, on a observé que lorsque la trajectoire d'un doigt présente une <strong>forme caractéristique</strong> (distance se réduisant et ré-augmentant rapidement), cela correspond à un appui sur une touche.
           </p>
           <p>
-            Pour <strong>réduire le bruit</strong> lié aux estimations de MMPose, chaque doigt / signal analysé est découpé en segments correspondant à une même touche, puis est lissé avec un <strong>filtre de Savitzky—Golay</strong>.
+            Pour <strong>réduire le bruit</strong> lié aux estimations de MMPose, chaque doigt / signal analysé est découpé en segments correspondant à une même touche, puis est lissé avec un <strong><a class="link" href="https://en.wikipedia.org/wiki/Savitzky%E2%80%93Golay_filter" target="_blank" rel="noreferrer">filtre de Savitzky—Golay</a></strong>.
             <br>
             Les <strong>pics</strong> suffisamment marqués sont ensuite conservés comme candidats d'appuis.
           </p>

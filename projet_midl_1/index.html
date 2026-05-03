@@ -2,18 +2,19 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Tom Le Ber — Metropolis—Hastings &amp; TSP</title>
+  <title>Tom Le Ber — Hastings—Metropolis &amp; TSP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Projet MIDL 1 : étude mathématique des chaînes de Markov et de l'algorithme de Metropolis—Hastings, avec implémentation Python appliquée au problème du voyageur de commerce." />
-  <link rel="icon" type="image/png" href="../assets/img/profile_picture.png">
+  <meta name="description" content="Projet MIDL 1 : étude mathématique des chaînes de Markov et de l'algorithme de Hastings—Metropolis, avec implémentation Python appliquée au problème du voyageur de commerce." />
+  <link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="canonical" href="https://tomleber.fr/projet_midl_1" />
+  <link rel="canonical" href="https://tomleber.fr/projet_midl_1/" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="/" aria-label="Retour à l'accueil">
-        <img class="brand-avatar" src="../assets/img/profile_picture.png" alt="Photo de profil" />
+        <img class="brand-avatar" src="../assets/img/profile_picture-128.webp" alt="Photo de profil" width="38" height="38" />
         <span class="brand-name">Tom Le Ber</span>
       </a>
       <nav class="main-nav">
@@ -31,12 +32,12 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <p class="hero-kicker">Projet académique · L2 MIDL</p>
-          <h1>Metropolis—Hastings &amp; problème du voyageur de commerce</h1>
+          <h1>Hastings—Metropolis &amp; problème du voyageur de commerce</h1>
           <p class="hero-subtitle">
-            Co-rédaction d'un <strong>rapport mathématique</strong> de 44 pages en <strong>LaTeX</strong>, composé d'une <strong>étude théorique des chaînes de Markov</strong> et d'une <strong>implémentation de l'algorithme de Metropolis—Hastings</strong>.
+            Co-rédaction d'un <strong>rapport mathématique</strong> de 44 pages en <strong>LaTeX</strong>, composé d'une <strong>étude théorique des chaînes de Markov</strong> et d'une <strong>implémentation de l'algorithme de Hastings—Metropolis</strong>.
           </p>
           <p class="hero-subtitle">
-            Démonstration de multiples preuves (théorème ergodique, de convergence, etc.) et implémentation Python appliquée au <strong>problème du voyageur de commerce</strong> (TSP).
+            <strong>Démonstration</strong> de multiples résultats / <strong>preuves</strong> (théorème ergodique, de convergence, etc.) et <strong>implémentation Python</strong> appliquée au <strong>problème du voyageur de commerce (TSP)</strong>.
           </p>
           <p class="hero-subtitle">
             Réalisé avec <a class="link" href="https://www.linkedin.com/in/tony-perottino-812a22325/" target="_blank" rel="noreferrer">Tony Perottino</a>, <a class="link" href="https://github.com/CorentinVaillant" target="_blank" rel="noreferrer">Corentin Vaillant</a> et <a class="link" href="https://yolwoocle.com/" target="_blank" rel="noreferrer">Léo Bernard</a>.
@@ -48,7 +49,7 @@
             <a class="btn primary" href="./docs/rapport_projet_midl_1.pdf" target="_blank" rel="noreferrer">
               Voir le rapport de mathématiques (PDF)
             </a>
-            <a class="btn primary" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://colab.research.google.com/drive/10B7I7ikLTzP9nouqRqdWE6qpYaaTslct?usp=sharing" target="_blank" rel="noreferrer">
               Voir le Google Colab du projet
             </a>
             <a class="btn ghost" href="/#projects">
@@ -58,13 +59,13 @@
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-name">Metropolis—Hastings &amp; TSP</p>
-            <p class="hero-role">Rapport mathématique et implémentation Python d'une méthode MCMC.</p>
+            <p class="hero-name">Hastings—Metropolis &amp; TSP</p>
+            <p class="hero-role">Rédaction d'un <strong>rapport mathématique</strong> sur les <strong>chaînes de Markov</strong> &amp; l'algorithme de <strong>Hastings—Metropolis</strong> et implémentation Python d'une <strong>méthode MCMC</strong>, appliquée au <strong>TSP</strong>.</p>
             <ul class="hero-meta">
               <li>Chaînes de Markov</li>
               <li>Méthodes MCMC</li>
               <li>Voyageur de commerce (TSP)</li>
-              <li>Python &amp; LaTeX</li>
+              <li>Rapport LaTeX &amp; Notebook Python</li>
             </ul>
           </div>
         </div>
@@ -83,7 +84,7 @@
             <a class="btn primary" href="./docs/rapport_projet_midl_1.pdf" target="_blank" rel="noreferrer">
               Voir le rapport complet (PDF)
             </a>
-            <a class="btn primary" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">
+            <a class="btn primary" href="https://colab.research.google.com/drive/10B7I7ikLTzP9nouqRqdWE6qpYaaTslct?usp=sharing" target="_blank" rel="noreferrer">
               Google Colab du projet
             </a>
             <a class="btn ghost" href="https://github.com/tominien/hasting-metropolis" target="_blank" rel="noreferrer">
@@ -153,7 +154,7 @@
           <p>
             La deuxième partie de notre rapport (informatique) commence par une <strong>implémentation générique de Hastings—Metropolis</strong>.
             <br>
-            Le <strong><a class="link" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> que l'on a réalisé nous permet de définir une distribution cible discrète et une matrice de proposition, puis de simuler une suite d'états dont l'histogramme se rapproche progressivement de la distribution visée.
+            Le <strong><a class="link" href="https://colab.research.google.com/drive/10B7I7ikLTzP9nouqRqdWE6qpYaaTslct?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> que l'on a réalisé nous permet de définir une distribution cible discrète et une matrice de proposition, puis de simuler une suite d'états dont l'histogramme se rapproche progressivement de la distribution visée.
           </p>
           <p>
             <strong>Plusieurs exemples de distributions sont testés</strong> afin de vérifier expérimentalement le comportement de l'algorithme : <strong>loi binomiale</strong>, <strong>loi de Poisson</strong>, <strong>loi uniforme</strong>, <strong>loi géométrique</strong> et <strong>distribution discrète quelconque</strong>.
@@ -173,7 +174,7 @@
             <br>
             Le paramètre <code>beta</code> nous permet de contrôler la sélectivité de cette préférence.
             <br>
-            Notre <strong><a class="link" href="https://colab.research.google.com/drive/1Mr8MXjnBVH8IKUrUbm60m9EiYSKMRKZK?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> compare alors le comportement de l'algorithme selon le nombre d'itérations et selon différentes valeurs de <code>beta</code>.
+            Notre <strong><a class="link" href="https://colab.research.google.com/drive/10B7I7ikLTzP9nouqRqdWE6qpYaaTslct?usp=sharing" target="_blank" rel="noreferrer">Google Colab</a></strong> compare alors le comportement de l'algorithme selon le nombre d'itérations et selon différentes valeurs de <code>beta</code>.
           </p>
           <p>
             Pour finir, différentes visualisations permettent d'observer l'amélioration progressive des tournées obtenues :
