@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Tom Le Ber — TER IRIT | Segmentation et réinsertion vidéo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="TER IRIT : création d'un pipeline de vision par ordinateur pour segmenter des vidéos de pole dance, réinsérer la personne sur un nouveau fond et évaluer quantitativement la qualité de reconstruction vidéo." />
+  <meta name="description" content="TER IRIT : création d'un pipeline de vision par ordinateur pour segmenter des vidéos de danseurs acrobatiques, réinsérer la personne sur un nouveau fond et évaluer quantitativement la qualité de reconstruction vidéo." />
   <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon-96.png">
   <link rel="icon" type="image/png" sizes="48x48" href="../assets/img/favicon-48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon-192.png">
@@ -34,7 +34,7 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <p class="hero-kicker">Stage de recherche (TER) · IRIT · L3 MIDL</p>
-          <h1>Jumeau numérique de vidéos de pole dance</h1>
+          <h1>Jumeau numérique de vidéos de danseurs acrobatiques</h1>
           <p class="hero-subtitle">
             <strong>Travail d'étude et de recherche (TER)</strong> réalisé à l'<strong>Institut de Recherche en Informatique de Toulouse (IRIT)</strong> autour de la segmentation vidéo, de l'analyse de pose et de la réinsertion d'une personne sur un nouveau fond.
           </p>
@@ -44,7 +44,7 @@
             </p>
             <ol class="container-list project-compact-list">
               <li>
-                Comment créer un <strong>jumeau numérique</strong> de vidéos de pole danseurs en mouvement le plus qualitatif possible, via un pipeline de <strong>vision par ordinateur</strong> combinant <strong>estimation de pose</strong>, <strong>segmentation</strong> et <strong>réinsertion</strong> sur de nouveaux fonds.
+                Comment créer un <strong>jumeau numérique</strong> de vidéos de danseurs acrobatiques en mouvement le plus qualitatif possible, via un pipeline de <strong>vision par ordinateur</strong> combinant <strong>estimation de pose</strong>, <strong>segmentation</strong> et <strong>réinsertion</strong> sur de nouveaux fonds.
               </li>
               <li>
                 La recherche de <strong>métriques quantitatives d'estimation de la qualité de reconstruction</strong> des vidéos obtenues.
@@ -61,6 +61,9 @@
             <a class="btn primary" href="./docs/rapport_ter_irit.pdf" target="_blank" rel="noreferrer">
               Voir le rapport du TER (PDF)
             </a>
+            <a class="btn primary" href="https://docs.google.com/presentation/d/1c2IDEhVFlXrQwT-PEzJ9W1rg5q2XlDWG/edit?usp=sharing&ouid=113917302389480304138&rtpof=true&sd=true" target="_blank" rel="noreferrer">
+              Slides de présentation du TER
+            </a>
             <a class="btn ghost" href="/#projects">
               ← Retour aux projets
             </a>
@@ -69,11 +72,11 @@
         <div class="hero-card">
           <div class="hero-card-inner">
             <p class="hero-name">TER IRIT</p>
-            <p class="hero-role">Création d'un <strong>jumeau numérique</strong> de <strong>vidéos de pole dance</strong> et recherche de <strong>métriques d'estimation de qualité de reconstruction</strong> vidéo.</p>
+            <p class="hero-role">Création d'un <strong>jumeau numérique</strong> de <strong>vidéos de danseurs acrobatiques</strong> et recherche de <strong>métriques d'estimation de qualité de reconstruction</strong> vidéo.</p>
             <ul class="hero-meta">
               <li>Vision par ordinateur</li>
-              <li>NLF + SAM 2</li>
-              <li>SAM 3</li>
+              <li>NLF + SAM2</li>
+              <li>SAM3</li>
               <li>Réinsertion vidéo</li>
               <li>Métriques d'estimation de qualité de reconstruction</li>
             </ul>
@@ -106,9 +109,9 @@
             Ce TER s'inscrit dans une problématique plus générale liée à la <strong>manipulation vidéo</strong> et aux <strong>deepfakes</strong> : avant de modifier ou de réinsérer un élément dans une vidéo, il faut souvent être capable de l'isoler précisément.
           </p>
           <p>
-            Dans notre cas, nous avons étudié des <strong>vidéos de pole dance</strong>.
+            Dans notre cas, nous avons étudié des <strong>vidéos de danseurs acrobatiques</strong>.
             Le but était de détourer automatiquement la personne présente dans une scène fixe, puis de la réinsérer sur un nouveau fond.
-            Ce choix rend le problème difficile : la barre de pole passe régulièrement devant et derrière le corps, les postures prises sont inhabituelles et extrêmes, les cheveux et les membres fins sont difficiles à segmenter, et la cohérence temporelle doit être conservée sur toute la vidéo.
+            Ce choix rend le problème difficile : la barre verticale passe régulièrement devant et derrière le corps, les postures prises sont inhabituelles et extrêmes, les cheveux et les membres fins sont difficiles à segmenter, et la cohérence temporelle doit être conservée sur toute la vidéo.
           </p>
           <p>
             L'objectif n'était donc pas seulement de produire un masque sur une image isolée, mais de construire une <strong>chaîne de traitement vidéo complète</strong>, comprenant :
@@ -125,7 +128,7 @@
         <h3>Données et protocole expérimental</h3>
         <div>
           <p>
-            Le projet repose sur un ensemble d'environ <strong>50 vidéos de pole dance</strong>.
+            Le projet repose sur un ensemble d'environ <strong>50 vidéos de danseurs acrobatiques</strong>.
             La majorité des expérimentations décrites dans le rapport sont réalisées sur une vidéo témoin de <strong>1329 frames</strong>, présentant notamment multiples changements de posture et variations de vitesse.
           </p>
           <p>
@@ -164,7 +167,7 @@
             Cette première étape a permis de comprendre ce que l'analyse de pose pouvait apporter au pipeline : localisation approximative du corps, visualisation du squelette et estimation de la robustesse temporelle.
           </p>
           <p>
-            La <strong>V2</strong> introduit <strong>SAM 2</strong> pour réaliser la segmentation.
+            La <strong>V2</strong> introduit <strong>SAM2</strong> pour réaliser la segmentation.
             L'idée est alors d'utiliser les informations de pose comme points d'ancrage, puis de propager le masque sur la vidéo.
             <br>
             Cette version constitue le premier véritable pipeline de segmentation et de reconstruction vidéo du projet.
@@ -174,14 +177,14 @@
         <h3>V3 et V4 : deux stratégies complémentaires</h3>
         <div>
           <p>
-            La <strong>V3</strong> est la version la plus aboutie reposant sur la combinaison <strong>NLF + SAM 2</strong>.
+            La <strong>V3</strong> est la version la plus aboutie reposant sur la combinaison <strong>NLF + SAM2</strong>.
             <br>
             Elle conserve l'analyse de pose pour guider régulièrement la segmentation, puis ajoute un travail important sur l'évaluation des résultats.
             <br>
             Cette version est relativement rapide et sert de base méthodologique pour l'étude des métriques.
           </p>
           <p>
-            La <strong>V4</strong> change complètement de stratégie : elle s'appuie directement sur <strong>SAM 3</strong>, sans passer par NLF pour guider la segmentation.
+            La <strong>V4</strong> change complètement de stratégie : elle s'appuie directement sur <strong>SAM3</strong>, sans passer par NLF pour guider la segmentation.
             <br>
             Le modèle est piloté par un prompt texte, puis propage la segmentation dans la vidéo. Cette approche donne des masques généralement plus cohérents, notamment sur les cheveux et les parties fines du sujet, mais elle demande un temps de calcul beaucoup plus élevé.
           </p>
@@ -193,11 +196,21 @@
     <section class="section">
       <div class="container">
         <h2>Segmentation vidéo et reconstruction</h2>
-        <h3>Pipeline V3 : NLF + SAM 2</h3>
+        <div class="action-block">
+          <div class="action-row">
+            <a class="btn primary" href="https://docs.google.com/presentation/d/1c2IDEhVFlXrQwT-PEzJ9W1rg5q2XlDWG/edit?usp=sharing&ouid=113917302389480304138&rtpof=true&sd=true" target="_blank" rel="noreferrer">
+              Slides de présentation du TER
+            </a>
+            <a class="btn primary" href="https://drive.google.com/file/d/1tMTv-VAbfwR06Xq7T-5WtC1evg9jKgGX/view?usp=sharing" target="_blank" rel="noreferrer">
+              Vidéo de comparaison V3 vs V4
+            </a>
+          </div>
+        </div>
+        <h3>Pipeline V3 : NLF + SAM2</h3>
         <div>
           <p>
-            Dans la V3, <strong>NLF</strong> fournit des joints 2D qui servent à guider périodiquement <strong>SAM 2</strong>.
-            Cette stratégie permet de limiter les dérives de segmentation qui apparaissent lorsque SAM 2 est lancé seul sur une vidéo longue, en particulier lorsque la danseuse passe devant ou derrière la barre.
+            Dans la V3, <strong>NLF</strong> fournit des joints 2D qui servent à guider périodiquement <strong>SAM2</strong>.
+            Cette stratégie permet de limiter les dérives de segmentation qui apparaissent lorsque SAM2 est lancé seul sur une vidéo longue, en particulier lorsque la danseuse passe devant ou derrière la barre.
           </p>
           <p>
             Sur la vidéo témoin, cette approche donne un pipeline exploitable en environ <strong>17 minutes</strong> pour <strong>1329 frames</strong>.
@@ -206,10 +219,10 @@
           </p>
         </div>
 
-        <h3>Pipeline V4 : SAM 3</h3>
+        <h3>Pipeline V4 : SAM3</h3>
         <div>
           <p>
-            La V4 repose sur une segmentation directement pilotée par <strong>SAM 3</strong>.
+            La V4 repose sur une segmentation directement pilotée par <strong>SAM3</strong>.
             Plusieurs prompts texte (personnalisés et modifiables) sont testés sur une frame de référence, puis le meilleur prompt est utilisé pour segmenter la vidéo par blocs successifs.
           </p>
           <p>
@@ -242,7 +255,7 @@
             Une fois la vidéo détourée obtenue, la <strong>dernière étape de construction du jumeau numérique</strong> consiste à <strong>réinsérer la danseuse dans un nouveau fond</strong>.
           </p>
           <p>
-            Dans les notebooks Google Colab, la réinsertion est réalisée à partir d'une <strong>transformation géométrique</strong> via la barre de pole dance : deux points de référence sont choisis (au même emplacement) sur la barre de pole dans la vidéo originale et sur l'image de destination et permettent de réaliser une transformation géométrique combinant rotation, changement d'échelle et translation.
+            Dans les notebooks Google Colab, la réinsertion est réalisée à partir d'une <strong>transformation géométrique</strong> via la barre verticale : deux points de référence sont choisis (au même emplacement) sur la barre verticale dans la vidéo originale et sur l'image de destination et permettent de réaliser une transformation géométrique combinant rotation, changement d'échelle et translation.
           </p>
           <p>
             Cette méthode fournit une première démonstration fonctionnelle, mais elle reste dépendante de plusieurs réglages manuels.
@@ -264,7 +277,7 @@
         <h3>Métriques sur les masques</h3>
         <div>
           <p>
-            Une première famille de métriques explorées repose sur l'<strong>aire des masques</strong> : on mesure le nombre de pixels appartenant au pole danseur, puis on étudie les variations et accélérations de cette aire au cours du temps.
+            Une première famille de métriques explorées repose sur l'<strong>aire des masques</strong> : on mesure le nombre de pixels appartenant au danseur acrobatique, puis on étudie les variations et accélérations de cette aire au cours du temps.
             <br>
             Une variation brutale de l'aire se traduit souvent par une disparition partielle du corps, une inclusion du fond ou une erreur de segmentation, indiquant une mauvaise transition dans la vidéo résultante.
           </p>
@@ -307,22 +320,22 @@
         <h2>Bilan et perspectives</h2>
         <div>
           <p>
-            Au terme du TER, nous avons obtenu deux pipelines exploitables pour la segmentation de vidéos de pole dance :
+            Au terme du TER, nous avons obtenu deux pipelines exploitables pour la segmentation de vidéos de danseurs acrobatiques :
           </p>
           <ul class="container-list">
-            <li>Un pipeline <strong>NLF + SAM 2</strong> (V3), plus rapide et adapté aux expérimentations,</li>
-            <li>Et un pipeline <strong>SAM 3</strong> (V4), plus lent mais plus convaincant visuellement.</li>
+            <li>Un pipeline <strong>NLF + SAM2</strong> (V3), plus rapide et adapté aux expérimentations,</li>
+            <li>Et un pipeline <strong>SAM3</strong> (V4), plus lent mais plus convaincant visuellement.</li>
           </ul>
           <p>
             Ce projet nous a aussi montré que la difficulté ne réside pas seulement dans le choix d'un modèle de segmentation.
             <br>
-            Les positions extrêmes, les auto-occlusions, la barre de pole, les cheveux et les changements rapides de posture rendent indispensable une réflexion sur la stabilité temporelle et sur l'évaluation quantitative des résultats.
+            Les positions extrêmes, les auto-occlusions, la barre verticale, les cheveux et les changements rapides de posture rendent indispensable une réflexion sur la stabilité temporelle et sur l'évaluation quantitative des résultats.
           </p>
           <p>
             Les perspectives d'amélioration principales concernent :
           </p>          
           <ul class="container-list">
-            <li>L'<strong>optimisation du pipeline SAM 3</strong>,</li>
+            <li>L'<strong>optimisation du pipeline SAM3</strong>,</li>
             <li>Le raffinement des <strong>métriques quantitatives d'estimation de qualité de reconstruction vidéo</strong>,</li>
             <li>L'automatisation de la <strong>réinsertion sur un nouveau fond</strong>,</li>
             <li>Et la construction d'un score plus robuste combinant plusieurs indicateurs complémentaires.</li>
